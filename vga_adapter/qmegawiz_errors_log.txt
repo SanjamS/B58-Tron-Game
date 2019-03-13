@@ -1,0 +1,19 @@
+
+
+/cmshome/jegath68/Desktop/CSCB58/Lab 6/lab6_b/vga_adapter/vga_pll.v
+
+Mar 06 08PM:43:31>: Error in CNX file format.
+
+Error messages are listed in file
+/cmshome/jegath68/Desktop/CSCB58/Lab 6/lab6_b/vga_adapter/vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+/cmshome/jegath68/Desktop/CSCB58/Lab 6/lab6_b/vga_adapter/vga_pll.v
+
+Mar 06 08PM:44:20>: Error in CNX file format.
+
+Error messages are listed in file
+/cmshome/jegath68/Desktop/CSCB58/Lab 6/lab6_b/vga_adapter/vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
