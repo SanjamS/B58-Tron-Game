@@ -1,52 +1,4 @@
-/*
-2 dots on screen, 1 top left, 1 bottom right
-press KEY[1] to start game
-use SW[0-3] for player 1s movements, SW[14-17] for player 2s movements
-
-if(KEY[1]):
-	while(True): # represents clock
-		player1.move_and_display(ENABLED_SWITCHES)
-		player2.move_and_display(ENABLED_SWITCHES)
-
-		update_ram(player1.location)
-		update_ram(player2.location)
-
-		player1.check_if_occupied()
-		player2.check_if_occupied()
-
-
-
-
-def check_if_occupied():
-	if(coords in ram):
-		return False // END GAME
-
-def update_ram(coords)
-	ram.append(coords)
-		
-		
-when the game starts
-start clock
-player 1 moves to the right until key is pressed. direction is handled by an fsm
-player 2 moves to the left until ""
-
-when player moves
-1. leave previous pixel on screen
-we need ram to hold all the places pixels are
-
-2. check if current pixel is occupied
-end game, give point to opposition
-
-3. draw pixel on screen if unoccupied
-
-
-- ram to store coords
-- directions fsm
-- collision trail
-- collision border
-
-*/
-module TronWithFriends
+module TronWithFriends ();
 	(
 		CLOCK_50,						//	On Board 50 MHz
 		// Your inputs and outputs here
@@ -59,7 +11,7 @@ module TronWithFriends
 		VGA_BLANK_N,						//	VGA BLANK
 		VGA_SYNC_N,						//	VGA SYNC
 		VGA_R,   						//	VGA Red[9:0]
-		VGA_G,							//	VGA Green[9:0]
+		VGA_G,	 						//	VGA Green[9:0]
 		VGA_B   						//	VGA Blue[9:0]
 	);
 
@@ -75,7 +27,7 @@ module TronWithFriends
 	output			VGA_BLANK_N;				//	VGA BLANK
 	output			VGA_SYNC_N;				//	VGA SYNC
 	output	[9:0]	VGA_R;   				//	VGA Red[9:0]
-	output	[9:0]	VGA_G;					//	VGA Green[9:0]
+	output	[9:0]	VGA_G;	 				//	VGA Green[9:0]
 	output	[9:0]	VGA_B;   				//	VGA Blue[9:0]
 	
 	wire resetn;
@@ -94,10 +46,10 @@ module TronWithFriends
 	vga_adapter VGA(
 			.resetn(resetn),
 			.clock(CLOCK_50),
-			.colour(3'b101),
-			.x(wire_x),
-			.y(wire_y),
-			.plot(1'b1),
+			.colour(colour),
+			.x(out_x),
+			.y(out_y),
+			.plot(writeEn),
 			/* Signals for the DAC to drive the monitor. */
 			.VGA_R(VGA_R),
 			.VGA_G(VGA_G),
@@ -107,7 +59,6 @@ module TronWithFriends
 			.VGA_BLANK(VGA_BLANK_N),
 			.VGA_SYNC(VGA_SYNC_N),
 			.VGA_CLK(VGA_CLK));
-
 		defparam VGA.RESOLUTION = "160x120";
 		defparam VGA.MONOCHROME = "FALSE";
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
@@ -118,17 +69,7 @@ module TronWithFriends
 
 	wire load_x, load_y;
 	wire out_x, out_y, out_colour;
-
-	wire [7:0] wire_x;
-	wire [7:0] wire_y;
-	
-	timer t0(
-				.clk(CLOCK_50),
-				.x(wire_x),
-				.y(wire_y)
-				);
-	
-	/*
+    
     // Instansiate datapath
 	datapath d0(
 				.clk(CLOCK_50), 
@@ -147,7 +88,7 @@ module TronWithFriends
 			);
 
     // Instansiate FSM control
-    control c1(
+    control c0(
 				.clk(CLOCK_50),
 				.reset_n(resetn),
 				.writeEn(writeEn),
@@ -159,36 +100,8 @@ module TronWithFriends
 				.load_y(load_y),
 				.load_output(KEY[3])
 			);
-	*/
 
 endmodule
-
-module timer(input clk, output reg [7:0] x, output reg [7:0] y);
-	wire clkout;
-	ratedivider r0(clk, clkout);
-	always @(posedge clkout) 
-	begin
-			x <= x + 8'b00000001;
-	end
-endmodule
-	
-
-module ratedivider(clk, clkout);
-	input clk;
-	output reg clkout;
-	reg [24:0] count;
-	
-	always @(posedge clk)
-	begin
-				if (count < 2000000)
-				count <= count + 1;
-				else begin
-				count <= 0;
-				clkout <= ~clkout;
-end
-	end
-endmodule
-
 
 module datapath(
 				input clk, 
@@ -252,6 +165,46 @@ module control(
 		else
 			current_state <= next_state;
 	end
+	
+	// Next state logic aka our state table
+    always@(*)
+    begin: state_table 
+            case (current_state)
+					// 1. Load X
+					S_LOAD_X: 
+					begin
+					if(writeEn)
+						next_state = S_LOAD_OUTPUT;
+					else if(in_write_x)
+						next_state = S_LOAD_X;
+					else if(in_write_y)
+						next_state = S_LOAD_Y;
+					end
+		
+					// 2. Load Y
+					S_LOAD_Y:
+					begin
+					if(writeEn)
+						next_state = S_LOAD_OUTPUT;
+					else if(in_write_x)
+						next_state = S_LOAD_X;
+					else if(in_write_y)
+						next_state = S_LOAD_Y;
+					end
+
+					// 3. Load Output
+					S_LOAD_OUTPUT:
+					begin
+					if(writeEn)
+						next_state = S_LOAD_OUTPUT;
+					else if(in_write_x)
+						next_state = S_LOAD_X;
+					else if(in_write_y)
+						next_state = S_LOAD_Y;
+					end
+					default: next_state = S_LOAD_X;
+				endcase
+    end // state_table
 	
 	// Update outputs
 	always@(*)
