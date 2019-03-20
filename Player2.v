@@ -1,81 +1,79 @@
 /*
 2 dots on screen, 1 top left, 1 bottom right
+
+Top left is 0,0?
+Bottom left is 160,120? or 159,119?
+
+
 press KEY[1] to start game
 use SW[0-3] for player 1s movements, SW[14-17] for player 2s movements
-
 if(KEY[1]):
 	while(True): # represents clock
 		player1.move_and_display(ENABLED_SWITCHES)
 		player2.move_and_display(ENABLED_SWITCHES)
-
 		update_ram(player1.location)
 		update_ram(player2.location)
-
 		player1.check_if_occupied()
 		player2.check_if_occupied()
-
 def check_if_occupied():
 	if(coords in ram):
 		return False // END GAME
-
 def update_ram(coords)
 	ram.append(coords)
-
-
+		
+		
 when the game starts
 start clock
 player 1 moves to the right until key is pressed. direction is handled by an fsm
 player 2 moves to the left until ""
-
 when player moves
 1. leave previous pixel on screen
 we need ram to hold all the places pixels are
-
 2. check if current pixel is occupied
 end game, give point to opposition
-
 3. draw pixel on screen if unoccupied
-
-
 - ram to store coords
 - directions fsm
 - collision trail
 - collision border
 
+
+
 */
-module TronWithFriends
+module Player2
 	(
-		CLOCK_50,							//	On Board 50 MHz
-        KEY,								// User defined input
-        SW,									// User defined input
+		CLOCK_50,						//	On Board 50 MHz
+		// Your inputs and outputs here
+        KEY,
+        SW,
 		// The ports below are for the VGA output.  Do not change.
-		VGA_CLK,   							//	VGA Clock
-		VGA_HS,								//	VGA H_SYNC
-		VGA_VS,								//	VGA V_SYNC
+		VGA_CLK,   						//	VGA Clock
+		VGA_HS,							//	VGA H_SYNC
+		VGA_VS,							//	VGA V_SYNC
 		VGA_BLANK_N,						//	VGA BLANK
-		VGA_SYNC_N,							//	VGA SYNC
-		VGA_R, 		  						//	VGA Red[9:0]
-		VGA_G,								//	VGA Green[9:0]
-		VGA_B   							//	VGA Blue[9:0]
+		VGA_SYNC_N,						//	VGA SYNC
+		VGA_R,   						//	VGA Red[9:0]
+		VGA_G,							//	VGA Green[9:0]
+		VGA_B   						//	VGA Blue[9:0]
 	);
 
-	input	CLOCK_50;						//	50 MHz
-	input   [10:0]   SW;					// User defined input
-	input   [3:0]   KEY;					// User defined input
+	input			CLOCK_50;				//	50 MHz
+	input   [10:0]   SW;
+	input   [3:0]   KEY;
 
 	// Declare your inputs and outputs here
 	// Do not change the following outputs
-	output	VGA_CLK;	   					//	VGA Clock
-	output	VGA_HS;							//	VGA H_SYNC
-	output	VGA_VS;							//	VGA V_SYNC
-	output	VGA_BLANK_N;					//	VGA BLANK
-	output	VGA_SYNC_N;						//	VGA SYNC
+	output			VGA_CLK;   				//	VGA Clock
+	output			VGA_HS;					//	VGA H_SYNC
+	output			VGA_VS;					//	VGA V_SYNC
+	output			VGA_BLANK_N;				//	VGA BLANK
+	output			VGA_SYNC_N;				//	VGA SYNC
 	output	[9:0]	VGA_R;   				//	VGA Red[9:0]
 	output	[9:0]	VGA_G;					//	VGA Green[9:0]
 	output	[9:0]	VGA_B;   				//	VGA Blue[9:0]
 	
-	wire resetn;							// Reset key
-	assign resetn = KEY[0];					// Reset key
+	wire resetn;
+	assign resetn = KEY[0];
 	
 	// Create the colour, x, y and writeEn wires that are inputs to the controller.
 	wire [2:0] colour;
@@ -90,7 +88,7 @@ module TronWithFriends
 	vga_adapter VGA(
 			.resetn(resetn),
 			.clock(CLOCK_50),
-			.colour(out_colour),
+			.colour(3'b101),
 			.x(wire_x),
 			.y(wire_y),
 			.plot(1'b1),
@@ -109,94 +107,22 @@ module TronWithFriends
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
 		defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
-	// Set up display outputs
-	wire [2:0] out_colour;
+	// Put your code here. Your code should produce signals x,y,colour and writeEn/plot
+	// for the VGA controller, in addition to any other functionality your design may require.
+
+	wire load_x, load_y;
+	wire out_x, out_y, out_colour;
+
 	wire [7:0] wire_x;
 	wire [7:0] wire_y;
-
-	// Set up players
-	wire [7:0] player_1x;
-	wire [7:0] player_1y;
-	wire [7:0] player_2x;
-	wire [7:0] player_2y;
-
-	/*
-	What does this timer do?
 	
-	This timer is responsible for drawing pixels on the screen for both players. It has 2 colours set
-	up by default. It moves players by 1 unit to the x and y coordinates for each coordinate.
-
-	TODO: 
-	- make movement based on user input using fsm
-	*/
 	timer t0(
 				.clk(CLOCK_50),
 				.x(wire_x),
-				.y(wire_y),
-				.player1x(player_1x),
-				.player1y(player_1y),
-				.player2x(player_2x),
-				.player2y(player_2y),
-				.colour(out_colour)
+				.y(wire_y)
 				);
-
+	
 	/*
-	What does this FSM do?
-
-	This user takes user input, from keys, and determines calculates the user's next position by
-	adjusting the x and y coordinates. We instantiate 2 of these: 1 for each player, and it is used
-	in the timer to determine the pixel's new position.
-
-	TODO: 
-	- actually make the fsm
-	*/
-
-
-	/*
-	What does this RAM do?
-
-	This RAM stores all the used positions by both player. This is later used for collision detection
-	and start the next round.
-
-	TODO:
-	- determine ram size for our screen resolution
-	- make ram store values
-	- make ram check input value before storing it. if it already exists, end the game by adding score + resetting
-	*/
-
-
-	/*
-	What does this Reset do?
-
-	Call this at any point to reset the board and award points to a specified player. This is done by taking in the
-	winning player's colour as an input.
-
-	TODO:
-	- reset pixels (should be easy, just make a wire to the display)
-	- award points (need scoreboard functionality for this)
-	*/
-
-
-	/*
-	What does this Start do?
-
-	Starts the game by connecting the clock to the timer. Simple.
-
-	TODO:
-	- make it
-	/*
-
-
-	/*
-	What does this Scoreboard do?
-
-	Keeps track of the score for each player and displays them on the HEX display.
-
-	TODO:
-	- store scoreboard in a RAM instance
-	- output status to HEX display
-	*/
-
     // Instansiate datapath
 	datapath d0(
 				.clk(CLOCK_50), 
@@ -205,15 +131,12 @@ module TronWithFriends
 				.in_x(SW[7:0]), 
 				.in_y(SW[6:0]), 
 				.in_colour(SW[9:7]), 
-
 				.load_x(load_x),
 				.load_y(load_y),
-
 				.out_x(out_x),
 				.out_y(out_y),
 				.out_colour(colour)
 			);
-
     // Instansiate FSM control
     control c1(
 				.clk(CLOCK_50),
@@ -222,49 +145,20 @@ module TronWithFriends
 				
 				.in_write_x(KEY[1]),
 				.in_write_y(KEY[2]),
-
 				.load_x(load_x),
 				.load_y(load_y),
 				.load_output(KEY[3])
 			);
 	*/
+
 endmodule
 
-module timer(input clk, 
-			output reg [7:0] x,
-			output reg [7:0] y,
-			output reg [7:0] player1x,
-			output reg [7:0] player1y,
-			output reg [7:0] player2x,
-			output reg [7:0] player2y,
-			output reg [2:0] colour,
-			);
-
-	// Initialize variables
+module timer(input clk, output reg [7:0] x, output reg [7:0] y);
 	wire clkout;
 	ratedivider r0(clk, clkout);
-
-	// On every clock pulse
 	always @(posedge clkout) 
 	begin
-			// Update and store player 1's position
-			player1x <= player1x + 8'b00000001;
-			player1y <= player1y + 8'b00000001;
-
-			// Move player 1
-			//colour <= 3'b101;
-			//x <= player1x;
-			//y <= player1y;
-
-
-			// Update and store player 2's position
-			player2x <= player2x + 8'b00000001;
-			player2y <= player2y + 8'b00000001;
-
-			// Move player 2
-			//colour <= 3'b010;
-			//x <= player2x;
-			//y <= player2y;
+			x <= x + 8'b00000001;
 	end
 endmodule
 	
@@ -285,9 +179,6 @@ end
 	end
 endmodule
 
-/*
-GRAVEYARD
-Quick Tip: Cards sent to the graveyard can be special summonned using the Monster Reborn spell card!
 
 module datapath(
 				input clk, 
@@ -370,4 +261,3 @@ module control(
 		endcase
 	end
 endmodule
-*/
