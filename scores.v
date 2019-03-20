@@ -5,6 +5,8 @@ module scores(KEY3, KEY0, SW0, SW1, HEX7, HEX6, HEX5, HEX4);
     input SW0; // someone won
     input SW1; // reset game
 
+    output [6:0] HEX7, HEX6, HEX5, HEX4;
+
     wire score1_dig1;
     wire score1_dig2;
     wire score2_dig1;
