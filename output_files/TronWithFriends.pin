@@ -73,7 +73,7 @@ VCCIO8                       : A2        : power  :                   : 2.5V    
 RESERVED_INPUT_WITH_WEAK_PULLUP : A3        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A4        :        :                   :         : 8         :                
 VCCIO8                       : A5        : power  :                   : 2.5V    : 8         :                
-VGA_B[8]                     : A6        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : A6        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A7        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A8        :        :                   :         : 8         :                
 VCCIO8                       : A9        : power  :                   : 2.5V    : 8         :                
@@ -378,10 +378,10 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : D2        :        :                   :      
 GND                          : D3        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D4        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D5        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D6        :        :                   :         : 8         :                
-VGA_G[8]                     : D7        : output : 2.5 V             :         : 8         : N              
+VGA_R[8]                     : D6        : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : D7        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D8        :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : D9        :        :                   :         : 8         :                
+VGA_G[8]                     : D9        : output : 2.5 V             :         : 8         : N              
 VGA_R[2]                     : D10       : output : 2.5 V             :         : 8         : Y              
 VGA_B[6]                     : D11       : output : 2.5 V             :         : 8         : Y              
 VGA_B[7]                     : D12       : output : 2.5 V             :         : 8         : Y              
@@ -414,7 +414,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : E10       :        :                   :      
 VGA_R[1]                     : E11       : output : 2.5 V             :         : 8         : Y              
 VGA_R[0]                     : E12       : output : 2.5 V             :         : 8         : Y              
 VCCIO8                       : E13       : power  :                   : 2.5V    : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : E14       :        :                   :         : 8         :                
+VGA_B[8]                     : E14       : output : 2.5 V             :         : 8         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : E15       :        :                   :         : 7         :                
 VCCIO7                       : E16       : power  :                   : 2.5V    : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E17       :        :                   :         : 7         :                
@@ -442,7 +442,7 @@ VGA_G[6]                     : F10       : output : 2.5 V             :         
 VGA_BLANK_N                  : F11       : output : 2.5 V             :         : 8         : Y              
 VGA_R[3]                     : F12       : output : 2.5 V             :         : 8         : Y              
 GND                          : F13       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : F14       :        :                   :         : 8         :                
+VGA_B[9]                     : F14       : output : 2.5 V             :         : 8         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : F15       :        :                   :         : 7         :                
 GND                          : F16       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F17       :        :                   :         : 7         :                
@@ -468,7 +468,7 @@ VGA_G[0]                     : G8        : output : 2.5 V             :         
 VGA_R[9]                     : G9        : output : 2.5 V             :         : 8         : N              
 VGA_R[4]                     : G10       : output : 2.5 V             :         : 8         : Y              
 VGA_G[1]                     : G11       : output : 2.5 V             :         : 8         : Y              
-VGA_B[9]                     : G12       : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : G12       :        :                   :         : 8         :                
 VGA_HS                       : G13       : output : 2.5 V             :         : 8         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : G14       :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : G15       :        :                   :         : 7         :                
@@ -522,7 +522,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : J6        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : J7        :        :                   :         : 1         :                
 VCCA3                        : J8        : power  :                   : 2.5V    :           :                
 VCCD_PLL3                    : J9        : power  :                   : 1.2V    :           :                
-VGA_R[8]                     : J10       : output : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : J10       :        :                   :         : 8         :                
 GND                          : J11       : gnd    :                   :         :           :                
 VGA_R[5]                     : J12       : output : 2.5 V             :         : 8         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : J13       :        :                   :         : 8         :                
