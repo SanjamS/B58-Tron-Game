@@ -1,3 +1,20 @@
+/*
+Keyboard WASD should make to different functions on
+the FSM. Put this in an FSM or st idk???
+
+W => y--;
+A => x--;
+S => x++;
+D => y++;
+
+AllowUp => y--;
+ArrowLeft => x--;
+ArrowRight => x++;
+ArrowDown => y++;
+
+*/
+
+
 module keyboard(clk, data, dir, reset);
 
 	input [3:0] data;
@@ -9,7 +26,7 @@ module keyboard(clk, data, dir, reset);
 	reg [7:0] code;
 	reg [10:0]keyCode, previousCode;
 	reg recordNext = 0;
-    
+
 	integer count = 0;
 	
 	always@(negedge clk)
