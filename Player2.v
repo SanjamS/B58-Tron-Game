@@ -1,5 +1,10 @@
 /*
 2 dots on screen, 1 top left, 1 bottom right
+
+Top left is 0,0?
+Bottom left is 160,120? or 159,119?
+
+
 press KEY[1] to start game
 use SW[0-3] for player 1s movements, SW[14-17] for player 2s movements
 if(KEY[1]):
@@ -31,6 +36,9 @@ end game, give point to opposition
 - directions fsm
 - collision trail
 - collision border
+
+
+
 */
 module Player2
 	(
