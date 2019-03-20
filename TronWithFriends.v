@@ -184,7 +184,7 @@ module TronWithFriends
 
 	TODO:
 	- make it
-	/*
+	*/
 
 
 	/*
@@ -197,37 +197,6 @@ module TronWithFriends
 	- output status to HEX display
 	*/
 
-    // Instansiate datapath
-	datapath d0(
-				.clk(CLOCK_50), 
-				.reset_n(resetn),
-				
-				.in_x(SW[7:0]), 
-				.in_y(SW[6:0]), 
-				.in_colour(SW[9:7]), 
-
-				.load_x(load_x),
-				.load_y(load_y),
-
-				.out_x(out_x),
-				.out_y(out_y),
-				.out_colour(colour)
-			);
-
-    // Instansiate FSM control
-    control c1(
-				.clk(CLOCK_50),
-				.reset_n(resetn),
-				.writeEn(writeEn),
-				
-				.in_write_x(KEY[1]),
-				.in_write_y(KEY[2]),
-
-				.load_x(load_x),
-				.load_y(load_y),
-				.load_output(KEY[3])
-			);
-	*/
 endmodule
 
 module timer(input clk, 
@@ -237,7 +206,7 @@ module timer(input clk,
 			output reg [7:0] player1y,
 			output reg [7:0] player2x,
 			output reg [7:0] player2y,
-			output reg [2:0] colour,
+			output reg [2:0] colour
 			);
 
 	// Initialize variables
@@ -249,22 +218,22 @@ module timer(input clk,
 	begin
 			// Update and store player 1's position
 			player1x <= player1x + 8'b00000001;
-			player1y <= player1y + 8'b00000001;
+			//player1y <= player1y + 8'b00000001;
 
 			// Move player 1
-			//colour <= 3'b101;
-			//x <= player1x;
+			colour <= 3'b101;
+			x <= player1x;
 			//y <= player1y;
 
 
 			// Update and store player 2's position
-			player2x <= player2x + 8'b00000001;
+			//player2x <= player2x + 8'b00000001;
 			player2y <= player2y + 8'b00000001;
 
 			// Move player 2
-			//colour <= 3'b010;
+			colour <= 3'b010;
 			//x <= player2x;
-			//y <= player2y;
+			y <= player2y;
 	end
 endmodule
 	
