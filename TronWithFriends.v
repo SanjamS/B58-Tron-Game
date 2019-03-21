@@ -60,7 +60,7 @@ module TronWithFriends
 	);
 
 	input	CLOCK_50;						//	50 MHz
-	input   [10:0]   SW;					// User defined input
+	input   [17:0]   SW;					// User defined input
 	input   [3:0]   KEY;					// User defined input
 
 	// Declare your inputs and outputs here
@@ -137,7 +137,8 @@ module TronWithFriends
 				.player1y(player_1y),
 				.player2x(player_2x),
 				.player2y(player_2y),
-				.colour(out_colour)
+				.colour(out_colour),
+				.SW(SW[17:0])
 				);
 
 	/*
@@ -199,7 +200,9 @@ module TronWithFriends
 
 endmodule
 
+
 module timer(input clk, 
+			input [17:0] SW,
 			output reg [7:0] x,
 			output reg [7:0] y,
 			output reg [7:0] player1x,
@@ -209,31 +212,91 @@ module timer(input clk,
 			output reg [2:0] colour
 			);
 
+	initial
+	begin
+		player2x <= 8'b01110000;
+		player2y <= 8'b01101111;
+	end
+			
 	// Initialize variables
 	wire clkout;
 	ratedivider r0(clk, clkout);
+	integer sanjam = 1;
+	integer move_x1 = 1;
+	integer move_y1 = 0;
+	integer move_x2 = -1;
+	integer move_y2 = 0;
 
 	// On every clock pulse
 	always @(posedge clkout) 
 	begin
+		if(sanjam)
+		begin
+			// Direction parser for player 1
+			if(SW[0])			// UP
+			begin
+				move_x1 = 0;
+				move_y1 = -1;
+			end
+			else if(SW[1])		// DOWN
+			begin
+				move_x1 = 0;
+				move_y1 = 1;
+			end
+			else if(SW[2])		// LEFT
+			begin
+				move_x1 = -1;
+				move_y1 = 0;
+			end
+			else if(SW[3])		// RIGHT
+			begin
+				move_x1 = 1;
+				move_y1 = 0;
+			end
+
 			// Update and store player 1's position
-			player1x <= player1x + 8'b00000001;
-			//player1y <= player1y + 8'b00000001;
+			player1x <= player1x + move_x1;
+			player1y <= player1y + move_y1;
 
 			// Move player 1
 			colour <= 3'b101;
 			x <= player1x;
-			//y <= player1y;
-
-
+			y <= player1y;
+			sanjam = 0;
+		end
+		else
+		// Direction parser for player 2
+		begin
+			if(SW[14])			// UP
+			begin
+				move_x2 = 0;
+				move_y2 = -1;
+			end
+			else if(SW[15])		// DOWN
+			begin
+				move_x2 = 0;
+				move_y2 = 1;
+			end
+			else if(SW[16])		// LEFT
+			begin
+				move_x2 = -1;
+				move_y2 = 0;
+			end
+			else if(SW[17])		// RIGHT
+			begin
+				move_x2 = 1;
+				move_y2 = 0;
+			end
 			// Update and store player 2's position
-			//player2x <= player2x + 8'b00000001;
-			player2y <= player2y + 8'b00000001;
+			player2x <= player2x + move_x2;
+			player2y <= player2y + move_y2;
 
 			// Move player 2
-			colour <= 3'b010;
-			//x <= player2x;
+			colour <= 3'b011;
+			x <= player2x;
 			y <= player2y;
+			sanjam = 1;
+		end
 	end
 endmodule
 	

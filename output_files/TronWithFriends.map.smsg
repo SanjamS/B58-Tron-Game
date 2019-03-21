@@ -1,2 +1,1 @@
-Info (10281): Verilog HDL Declaration information at TronWithFriends.v(182): object "load_x" differs only in case from object "Load_x" in the same scope File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 182
-Info (10281): Verilog HDL Declaration information at TronWithFriends.v(182): object "load_y" differs only in case from object "Load_y" in the same scope File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 182
+Warning (10268): Verilog HDL information at TronWithFriends.v(231): always construct contains both blocking and non-blocking assignments File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 231

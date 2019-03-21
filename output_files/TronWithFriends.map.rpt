@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TronWithFriends
-Wed Mar 20 19:17:22 2019
+Wed Mar 20 21:06:09 2019
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -16,21 +16,23 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
   8. Analysis & Synthesis RAM Summary
   9. Registers Removed During Synthesis
  10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated
- 13. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 14. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 15. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 16. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 17. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 18. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 19. altsyncram Parameter Settings by Entity Instance
- 20. altpll Parameter Settings by Entity Instance
- 21. Port Connectivity Checks: "timer:t0"
- 22. Port Connectivity Checks: "vga_adapter:VGA"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated
+ 14. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 15. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 16. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 17. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 18. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 19. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. altpll Parameter Settings by Entity Instance
+ 22. Port Connectivity Checks: "timer:t0"
+ 23. Port Connectivity Checks: "vga_adapter:VGA"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -57,16 +59,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 20 19:17:22 2019       ;
+; Analysis & Synthesis Status        ; Successful - Wed Mar 20 21:06:09 2019       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; TronWithFriends                             ;
 ; Top-level Entity Name              ; TronWithFriends                             ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 152                                         ;
-;     Total combinational functions  ; 140                                         ;
-;     Dedicated logic registers      ; 71                                          ;
-; Total registers                    ; 71                                          ;
-; Total pins                         ; 51                                          ;
+; Total logic elements               ; 204                                         ;
+;     Total combinational functions  ; 199                                         ;
+;     Dedicated logic registers      ; 110                                         ;
+; Total registers                    ; 110                                         ;
+; Total pins                         ; 58                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 57,600                                      ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -202,40 +204,40 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                               ;
-+---------------------------------------------+-------------------------------------------------------------+
-; Resource                                    ; Usage                                                       ;
-+---------------------------------------------+-------------------------------------------------------------+
-; Estimated Total logic elements              ; 152                                                         ;
-;                                             ;                                                             ;
-; Total combinational functions               ; 140                                                         ;
-; Logic element usage by number of LUT inputs ;                                                             ;
-;     -- 4 input functions                    ; 35                                                          ;
-;     -- 3 input functions                    ; 23                                                          ;
-;     -- <=2 input functions                  ; 82                                                          ;
-;                                             ;                                                             ;
-; Logic elements by mode                      ;                                                             ;
-;     -- normal mode                          ; 60                                                          ;
-;     -- arithmetic mode                      ; 80                                                          ;
-;                                             ;                                                             ;
-; Total registers                             ; 71                                                          ;
-;     -- Dedicated logic registers            ; 71                                                          ;
-;     -- I/O registers                        ; 0                                                           ;
-;                                             ;                                                             ;
-; I/O pins                                    ; 51                                                          ;
-; Total memory bits                           ; 57600                                                       ;
-;                                             ;                                                             ;
-; Embedded Multiplier 9-bit elements          ; 0                                                           ;
-;                                             ;                                                             ;
-; Total PLLs                                  ; 1                                                           ;
-;     -- PLLs                                 ; 1                                                           ;
-;                                             ;                                                             ;
-; Maximum fan-out node                        ; vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|_clk0 ;
-; Maximum fan-out                             ; 41                                                          ;
-; Total fan-out                               ; 904                                                         ;
-; Average fan-out                             ; 2.80                                                        ;
-+---------------------------------------------+-------------------------------------------------------------+
++------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                      ;
++---------------------------------------------+--------------------+
+; Resource                                    ; Usage              ;
++---------------------------------------------+--------------------+
+; Estimated Total logic elements              ; 204                ;
+;                                             ;                    ;
+; Total combinational functions               ; 199                ;
+; Logic element usage by number of LUT inputs ;                    ;
+;     -- 4 input functions                    ; 43                 ;
+;     -- 3 input functions                    ; 63                 ;
+;     -- <=2 input functions                  ; 93                 ;
+;                                             ;                    ;
+; Logic elements by mode                      ;                    ;
+;     -- normal mode                          ; 99                 ;
+;     -- arithmetic mode                      ; 100                ;
+;                                             ;                    ;
+; Total registers                             ; 110                ;
+;     -- Dedicated logic registers            ; 110                ;
+;     -- I/O registers                        ; 0                  ;
+;                                             ;                    ;
+; I/O pins                                    ; 58                 ;
+; Total memory bits                           ; 57600              ;
+;                                             ;                    ;
+; Embedded Multiplier 9-bit elements          ; 0                  ;
+;                                             ;                    ;
+; Total PLLs                                  ; 1                  ;
+;     -- PLLs                                 ; 1                  ;
+;                                             ;                    ;
+; Maximum fan-out node                        ; timer:t0|sanjam[0] ;
+; Maximum fan-out                             ; 58                 ;
+; Total fan-out                               ; 1194               ;
+; Average fan-out                             ; 2.74               ;
++---------------------------------------------+--------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -243,8 +245,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |TronWithFriends                                        ; 140 (1)           ; 71 (0)       ; 57600       ; 0            ; 0       ; 0         ; 51   ; 0            ; |TronWithFriends                                                                                                ; TronWithFriends        ; work         ;
-;    |timer:t0|                                           ; 41 (8)            ; 41 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|timer:t0                                                                                       ; timer                  ; work         ;
+; |TronWithFriends                                        ; 199 (0)           ; 110 (0)      ; 57600       ; 0            ; 0       ; 0         ; 58   ; 0            ; |TronWithFriends                                                                                                ; TronWithFriends        ; work         ;
+;    |timer:t0|                                           ; 101 (68)          ; 80 (54)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|timer:t0                                                                                       ; timer                  ; work         ;
 ;       |ratedivider:r0|                                  ; 33 (33)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|timer:t0|ratedivider:r0                                                                        ; ratedivider            ; work         ;
 ;    |vga_adapter:VGA|                                    ; 98 (2)            ; 30 (0)       ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 12 (0)            ; 4 (0)        ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
@@ -270,32 +272,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; timer:t0|colour[0]                     ; Stuck at GND due to stuck port data_in ;
-; timer:t0|colour[1]                     ; Stuck at VCC due to stuck port data_in ;
-; timer:t0|colour[2]                     ; Stuck at GND due to stuck port data_in ;
-; timer:t0|y[6]                          ; Merged with timer:t0|x[6]              ;
-; timer:t0|y[4]                          ; Merged with timer:t0|x[4]              ;
-; timer:t0|y[5]                          ; Merged with timer:t0|x[5]              ;
-; timer:t0|y[3]                          ; Merged with timer:t0|x[3]              ;
-; timer:t0|y[2]                          ; Merged with timer:t0|x[2]              ;
-; timer:t0|y[1]                          ; Merged with timer:t0|x[1]              ;
-; timer:t0|y[0]                          ; Merged with timer:t0|x[0]              ;
-; timer:t0|player2y[6]                   ; Merged with timer:t0|player1x[6]       ;
-; timer:t0|player2y[4]                   ; Merged with timer:t0|player1x[4]       ;
-; timer:t0|player2y[5]                   ; Merged with timer:t0|player1x[5]       ;
-; timer:t0|player2y[3]                   ; Merged with timer:t0|player1x[3]       ;
-; timer:t0|player2y[2]                   ; Merged with timer:t0|player1x[2]       ;
-; timer:t0|player2y[1]                   ; Merged with timer:t0|player1x[1]       ;
-; timer:t0|player2y[0]                   ; Merged with timer:t0|player1x[0]       ;
-; timer:t0|player2y[7]                   ; Merged with timer:t0|player1x[7]       ;
-; timer:t0|player1x[0]                   ; Merged with timer:t0|x[0]              ;
-; Total Number of Removed Registers = 19 ;                                        ;
-+----------------------------------------+----------------------------------------+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; timer:t0|sanjam[1..31]                  ; Stuck at GND due to stuck port data_in ;
+; timer:t0|colour[0]                      ; Stuck at VCC due to stuck port data_in ;
+; timer:t0|colour[1,2]                    ; Merged with timer:t0|sanjam[0]         ;
+; timer:t0|move_y2[8..31]                 ; Lost fanout                            ;
+; timer:t0|move_x2[8..31]                 ; Lost fanout                            ;
+; timer:t0|move_y1[8..31]                 ; Lost fanout                            ;
+; timer:t0|move_x1[8..31]                 ; Lost fanout                            ;
+; timer:t0|move_y2[2..7]                  ; Merged with timer:t0|move_y2[1]        ;
+; timer:t0|move_y1[2..7]                  ; Merged with timer:t0|move_y1[1]        ;
+; timer:t0|move_x2[2..7]                  ; Merged with timer:t0|move_x2[1]        ;
+; timer:t0|move_x1[2..7]                  ; Merged with timer:t0|move_x1[1]        ;
+; timer:t0|player2y[7]                    ; Lost fanout                            ;
+; timer:t0|player1y[7]                    ; Lost fanout                            ;
+; Total Number of Removed Registers = 156 ;                                        ;
++-----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -303,14 +299,33 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 71    ;
+; Total registers                              ; 110   ;
 ; Number of registers using Synchronous Clear  ; 25    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 38    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; timer:t0|sanjam[0]                      ; 58      ;
+; timer:t0|player2y[6]                    ; 2       ;
+; timer:t0|player2y[5]                    ; 2       ;
+; timer:t0|player2y[3]                    ; 2       ;
+; timer:t0|player2y[2]                    ; 2       ;
+; timer:t0|player2y[1]                    ; 2       ;
+; timer:t0|player2y[0]                    ; 2       ;
+; timer:t0|player2x[6]                    ; 2       ;
+; timer:t0|player2x[5]                    ; 2       ;
+; timer:t0|player2x[4]                    ; 2       ;
+; Total number of inverted registers = 10 ;         ;
++-----------------------------------------+---------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -320,6 +335,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
 ; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TronWithFriends|vga_adapter:VGA|vga_controller:controller|yCounter[9]                                             ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3|result_node[2] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TronWithFriends|timer:t0|move_x2                                                                                  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TronWithFriends|timer:t0|move_y1                                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
 
 
@@ -884,26 +901,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 51                          ;
-; cycloneiii_ff         ; 71                          ;
+; boundary_port         ; 58                          ;
+; cycloneiii_ff         ; 110                         ;
 ;     CLR               ; 20                          ;
+;     ENA               ; 38                          ;
 ;     SCLR              ; 25                          ;
-;     plain             ; 26                          ;
-; cycloneiii_lcell_comb ; 141                         ;
-;     arith             ; 80                          ;
-;         2 data inputs ; 63                          ;
-;         3 data inputs ; 17                          ;
-;     normal            ; 61                          ;
-;         0 data inputs ; 4                           ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 9                           ;
-;         3 data inputs ; 6                           ;
-;         4 data inputs ; 35                          ;
+;     plain             ; 27                          ;
+; cycloneiii_lcell_comb ; 200                         ;
+;     arith             ; 100                         ;
+;         2 data inputs ; 58                          ;
+;         3 data inputs ; 42                          ;
+;     normal            ; 100                         ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 16                          ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 21                          ;
+;         4 data inputs ; 43                          ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.70                        ;
+; Max LUT depth         ; 4.60                        ;
+; Average LUT depth     ; 2.86                        ;
 +-----------------------+-----------------------------+
 
 
@@ -922,13 +940,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Wed Mar 20 19:17:13 2019
+    Info: Processing started: Wed Mar 20 21:05:59 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TronWithFriends -c TronWithFriends
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 3 design units, including 3 entities, in source file TronWithFriends.v
     Info (12023): Found entity 1: TronWithFriends File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 46
-    Info (12023): Found entity 2: timer File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 202
-    Info (12023): Found entity 3: ratedivider File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 241
+    Info (12023): Found entity 2: timer File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 204
+    Info (12023): Found entity 3: ratedivider File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 304
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_pll.v
     Info (12023): Found entity 1: vga_pll File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_controller.v
@@ -987,25 +1005,25 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 252
-Info (12128): Elaborating entity "timer" for hierarchy "timer:t0" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 141
-Warning (10034): Output port "player1y" at TronWithFriends.v(206) has no driver File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 206
-Warning (10034): Output port "player2x" at TronWithFriends.v(207) has no driver File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 207
-Info (12128): Elaborating entity "ratedivider" for hierarchy "timer:t0|ratedivider:r0" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 214
-Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(249): truncated value with size 32 to match size of target (25) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 249
+Info (12128): Elaborating entity "timer" for hierarchy "timer:t0" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 142
+Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(258): truncated value with size 32 to match size of target (8) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 258
+Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(259): truncated value with size 32 to match size of target (8) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 259
+Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(291): truncated value with size 32 to match size of target (8) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 291
+Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(292): truncated value with size 32 to match size of target (8) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 292
+Info (12128): Elaborating entity "ratedivider" for hierarchy "timer:t0|ratedivider:r0" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 223
+Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(312): truncated value with size 32 to match size of target (25) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 312
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 72
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 98 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/output_files/TronWithFriends.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 14 input pin(s) that do not drive logic
+Warning (21074): Design contains 13 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 64
     Warning (15610): No output dependent on input pin "KEY[2]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 64
     Warning (15610): No output dependent on input pin "KEY[3]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 64
-    Warning (15610): No output dependent on input pin "SW[0]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
-    Warning (15610): No output dependent on input pin "SW[1]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
-    Warning (15610): No output dependent on input pin "SW[2]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
-    Warning (15610): No output dependent on input pin "SW[3]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
     Warning (15610): No output dependent on input pin "SW[4]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
     Warning (15610): No output dependent on input pin "SW[5]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
     Warning (15610): No output dependent on input pin "SW[6]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
@@ -1013,16 +1031,25 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[8]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
     Warning (15610): No output dependent on input pin "SW[9]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
     Warning (15610): No output dependent on input pin "SW[10]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
-Info (21057): Implemented 215 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 16 input pins
+    Warning (15610): No output dependent on input pin "SW[11]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
+    Warning (15610): No output dependent on input pin "SW[12]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
+    Warning (15610): No output dependent on input pin "SW[13]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 63
+Info (21057): Implemented 282 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 23 input pins
     Info (21059): Implemented 35 output pins
-    Info (21061): Implemented 154 logic cells
+    Info (21061): Implemented 214 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 1255 megabytes
-    Info: Processing ended: Wed Mar 20 19:17:22 2019
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:18
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 1257 megabytes
+    Info: Processing ended: Wed Mar 20 21:06:09 2019
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/output_files/TronWithFriends.map.smsg.
 
 
