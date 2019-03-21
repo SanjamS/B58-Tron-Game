@@ -144,35 +144,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[0]",
+					"name" : "PS2_KBCLK",
 					"strict" : false
 				},
 				{
-					"name" : "SW[2]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[3]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[1]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[14]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[16]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[17]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[15]",
+					"name" : "PS2_KBDAT",
 					"strict" : false
 				}
 			]

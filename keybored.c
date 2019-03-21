@@ -4,7 +4,7 @@
 // Go India Go!
 // Jk but it's from that site, idk if the guy's acc in a gang called India Gang
 
-module keyboard(
+module Keyboard(
 	input CLOCK_50,	//board clock
   	input PS2_CLK,	//keyboard clock and data signals
   	input PS2_DATA,
@@ -40,12 +40,13 @@ module keyboard(
 		scan_code = 0;
 		COUNT = 0;			
 		CODEWORD = 0;
+		LED = 0;
 		read = 0;
 		count_reading = 0;
 		KEYSTROKE = 0;
 	end
 
-	always @(posedge CLOCK_50) begin				//This reduces the frequency 250 times
+	always @(posedge CLK) begin				//This reduces the frequency 250 times
 		if (DOWNCOUNTER < 249) begin			//and uses variable TRIGGER as the new board clock 
 			DOWNCOUNTER <= DOWNCOUNTER + 1;
 			TRIGGER <= 0;
@@ -56,7 +57,7 @@ module keyboard(
 		end
 	end
 	
-	always @(posedge CLOCK_50) begin	
+	always @(posedge CLK) begin	
 		if (TRIGGER) begin
 			if (read)				//if it still waits to read full packet of 11 bits, then (read == 1)
 				count_reading <= count_reading + 1;	//and it counts up this variable
@@ -66,8 +67,8 @@ module keyboard(
 	end
 
 
-	always @(posedge CLOCK_50) begin		
-	if (TRIGGER) begin						//If the down counter (CLOCK_50/250) is ready
+	always @(posedge CLK) begin		
+	if (TRIGGER) begin						//If the down counter (CLK/250) is ready
 		if (PS2_CLK != PREVIOUS_STATE) begin			//if the state of Clock pin changed from previous state
 			if (!PS2_CLK) begin				//and if the keyboard clock is at falling edge
 				read <= 1;				//mark down that it is still reading for the next bit
@@ -100,7 +101,7 @@ module keyboard(
 	end
 
 
-	always @(posedge CLOCK_50) begin
+	always @(posedge CLK) begin
 		if (TRIGGER) begin					//if the 250 times slower than board clock triggers
 			if (TRIG_ARR) begin				//and if a full packet of 11 bits was received
 				if (scan_err) begin			//BUT if the packet was NOT OK
@@ -113,6 +114,14 @@ module keyboard(
 			else CODEWORD <= 8'd0;				//not a full packet received, thus reset codeword
 		end
 		else CODEWORD <= 8'd0;					//no clock trigger, no data…
+	end
+	
+	always @(posedge CLK) begin
+		if (CODEWORD == ARROW_UP)				//if the CODEWORD has the same code as the ARROW_UP code
+			LED <= LED + 1;					//count up the LED register to light up LEDs
+		else if (CODEWORD == ARROW_DOWN)			//or if the ARROW_DOWN was pressed, then
+			LED <= LED - 1;					//count down LED register 
+
 	end
 
 	// Controls for TurfWars
@@ -135,5 +144,4 @@ module keyboard(
 	      KEYSTROKE <= 4'b0111;
 	    else if (CODEWORD == SPACE)
 	      KEYSTROKE <= 4'b1111;
-		end
 endmodule

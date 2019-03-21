@@ -43,11 +43,15 @@ end game, give point to opposition
 - collision border
 
 */
+
+`include "keyboard.v"
+
 module TronWithFriends
 	(
 		CLOCK_50,							//	On Board 50 MHz
         KEY,								// User defined input
         SW,									// User defined input
+		  PS2_KBCLK, PS2_KBDAT,			// Keybored input
 		// The ports below are for the VGA output.  Do not change.
 		VGA_CLK,   							//	VGA Clock
 		VGA_HS,								//	VGA H_SYNC
@@ -109,6 +113,16 @@ module TronWithFriends
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
 		defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
+	// Keybored
+	input PS2_KBCLK, PS2_KBDAT;
+	keyboard kb(
+		.CLOCK_50(CLOCK_50),
+		.PS2_CLK(PS2_KBCLK),
+		.PS2_DATA(PS2_KBDAT),
+		.KEYSTROKE(KEYSTROKE)
+  );
+  wire [4:0] KEYSTROKE;
+		
 	// Set up display outputs
 	wire [2:0] out_colour;
 	wire [7:0] wire_x;
@@ -138,7 +152,8 @@ module TronWithFriends
 				.player2x(player_2x),
 				.player2y(player_2y),
 				.colour(out_colour),
-				.SW(SW[17:0])
+				.SW(SW[17:0]),
+				.KEYSTROKE(KEYSTROKE)
 				);
 
 	/*
@@ -209,7 +224,8 @@ module timer(input clk,
 			output reg [7:0] player1y,
 			output reg [7:0] player2x,
 			output reg [7:0] player2y,
-			output reg [2:0] colour
+			output reg [2:0] colour,
+			input [4:0] KEYSTROKE
 			);
 
 	initial
@@ -233,22 +249,22 @@ module timer(input clk,
 		if(sanjam)
 		begin
 			// Direction parser for player 1
-			if(SW[0])			// UP
+			if(KEYSTROKE == 4'b0100)			// UP
 			begin
 				move_x1 = 0;
 				move_y1 = -1;
 			end
-			else if(SW[1])		// DOWN
+			else if(KEYSTROKE == 4'b0101)		// DOWN
 			begin
 				move_x1 = 0;
 				move_y1 = 1;
 			end
-			else if(SW[2])		// LEFT
+			else if(KEYSTROKE == 4'b0110)		// LEFT
 			begin
 				move_x1 = -1;
 				move_y1 = 0;
 			end
-			else if(SW[3])		// RIGHT
+			else if(KEYSTROKE == 4'b0111)		// RIGHT
 			begin
 				move_x1 = 1;
 				move_y1 = 0;
@@ -267,22 +283,22 @@ module timer(input clk,
 		else
 		// Direction parser for player 2
 		begin
-			if(SW[14])			// UP
+			if(KEYSTROKE == 4'b0000)			// UP
 			begin
 				move_x2 = 0;
 				move_y2 = -1;
 			end
-			else if(SW[15])		// DOWN
+			else if(KEYSTROKE == 4'b0001)		// DOWN
 			begin
 				move_x2 = 0;
 				move_y2 = 1;
 			end
-			else if(SW[16])		// LEFT
+			else if(KEYSTROKE == 4'b0010)		// LEFT
 			begin
 				move_x2 = -1;
 				move_y2 = 0;
 			end
-			else if(SW[17])		// RIGHT
+			else if(KEYSTROKE == 4'b0011)		// RIGHT
 			begin
 				move_x2 = 1;
 				move_y2 = 0;
