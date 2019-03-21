@@ -1,55 +1,38 @@
 // this is test
-module scores(KEY3, KEY0, SW0, SW1, HEX7, HEX6, HEX5, HEX4);
-    input KEY3; // player 1 won
-    input KEY0; // player 2 won
-    input SW0; // someone won
-    input SW1; // reset game
+module scores(KEY, SW, HEX7, HEX6, HEX5, HEX4);
+	input [3:0] KEY; // player 1 won player 2 won
+   input [1:0] SW; // someone won,reset score
 
-    output [6:0] HEX7, HEX6, HEX5, HEX4;
+   output [6:0] HEX7, HEX6, HEX5, HEX4;
 
-    wire score1_dig1;
-    wire score1_dig2;
-    wire score2_dig1;
-    wire score2_dig2;
+	wire [3:0] score1_dig1, score1_dig2, score2_dig1, score2_dig2;
+	
+	counter scorep1(SW[0], KEY[3], SW[1], {score1_dig1, score1_dig2});
+	counter scorep2(SW[0], KEY[0], SW[1], {score2_dig1, score2_dig2});
+	
+   hex_display hexp1_1(score1_dig1, HEX7);
+   hex_display hexp1_2(score1_dig2, HEX6);
+   hex_display hexp2_1(score2_dig1, HEX5);
+   hex_display hexp2_2(score2_dig2, HEX4);
 
-    counter scorep1(.enable(KEY3), 
-              .clk(SW0),
-              .clear_b(SW1),
-              .out({score1_dig1, score1_dig2})
-              );
-    counter scorep2(.enable(KEY0), 
-              .clk(SW0),
-              .clear_b(SW1),
-              .out({score2_dig1, score2_dig2})
-              );
-
-    hex_display hexp1_1(score1_dig1, HEX7);
-    hex_display hexp1_2(score1_dig2, HEX6);
-    hex_display hexp2_1(score2_dig1, HEX5);
-    hex_display hexp2_2(score2_dig2, HEX4);
 endmodule
 
+// Only up to 10
 module counter(enable, clk, clear_b, out);
 	input enable, clk, clear_b;
-	output [7:0] out;
+	output [3:0] out;
 	
-	wire w0, w1, w2, w3, w4, w5, w6;
+	wire w0, w1, w2, w3;
 	assign w0 = enable & out[0];
 	assign w1 = w0 & out[1];
 	assign w2 = w1 & out[2];
 	assign w3 = w2 & out[3];
-	assign w4 = w3 & out[4];
-	assign w5 = w4 & out[5];
-	assign w6 = w5 & out[6];
 	
 	bit_counter t0(enable, clk, clear_b, out[0]);
 	bit_counter t1(w0, clk, clear_b, out[1]);
 	bit_counter t2(w1, clk, clear_b, out[2]);
 	bit_counter t3(w2, clk, clear_b, out[3]);
 	bit_counter t4(w3, clk, clear_b, out[4]);
-	bit_counter t5(w4, clk, clear_b, out[5]);
-	bit_counter t6(w5, clk, clear_b, out[6]);
-	bit_counter t7(w6, clk, clear_b, out[7]);
 endmodule
 
 module bit_counter(in, clk, clear_b, out);
@@ -125,3 +108,4 @@ module scores(p1, p2, enable, reset, HEX7, HEX6, HEX5, HEX4);
     hex_display hexp2_2(score2_dig2, HEX4);
 endmodule
 */
+
