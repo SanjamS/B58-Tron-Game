@@ -32,7 +32,6 @@ module counter(enable, clk, clear_b, out);
 	bit_counter t1(w0, clk, clear_b, out[1]);
 	bit_counter t2(w1, clk, clear_b, out[2]);
 	bit_counter t3(w2, clk, clear_b, out[3]);
-	bit_counter t4(w3, clk, clear_b, out[4]);
 endmodule
 
 module bit_counter(in, clk, clear_b, out);
@@ -85,12 +84,10 @@ module scores(p1, p2, enable, reset, HEX7, HEX6, HEX5, HEX4);
     input p2; // player 2 won
     input enable; // someone won
     input reset; // reset game
-
     wire score1_dig1;
     wire score1_dig2;
     wire score2_dig1;
     wire score2_dig2;
-
     counter scorep1(.enable(p1), 
               .clk(enable),
               .clear_b(reset),
@@ -101,7 +98,6 @@ module scores(p1, p2, enable, reset, HEX7, HEX6, HEX5, HEX4);
               .clear_b(reset),
               .out({score2_dig1, score2_dig2})
               );
-
     hex_display hexp1_1(score1_dig1, HEX7);
     hex_display hexp1_2(score1_dig2, HEX6);
     hex_display hexp2_1(score2_dig1, HEX5);
