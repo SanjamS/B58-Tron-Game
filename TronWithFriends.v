@@ -111,7 +111,7 @@ module TronWithFriends
 		defparam VGA.RESOLUTION = "160x120";
 		defparam VGA.MONOCHROME = "FALSE";
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-		defparam VGA.BACKGROUND_IMAGE = "black.mif";
+		defparam VGA.BACKGROUND_IMAGE = "image.colour.mif";
 
 	// Keybored
 	input PS2_KBCLK, PS2_KBDAT;
@@ -145,6 +145,7 @@ module TronWithFriends
 	*/
 	timer t0(
 				.clk(CLOCK_50),
+				.reset(resetn),
 				.x(wire_x),
 				.y(wire_y),
 				.player1x(player_1x),
@@ -218,6 +219,7 @@ endmodule
 
 module timer(input clk, 
 			input [17:0] SW,
+			input reset,
 			output reg [7:0] x,
 			output reg [7:0] y,
 			output reg [7:0] player1x,
@@ -227,11 +229,35 @@ module timer(input clk,
 			output reg [2:0] colour,
 			input [4:0] KEYSTROKE
 			);
-
+	
+	reg board [0:159][0:119];
+	integer i;
 	initial
 	begin
+		// Set player 1's start position
+		player1x <= 8'b00000101;
+		player1y <= 8'b00000101;
+
+		// Set player 2's start position
 		player2x <= 8'b01110000;
 		player2y <= 8'b01101111;
+		
+		// Create the board
+		board[5][5] = 1;
+		board[112][111] = 1;
+		// Set X borders
+		for( i = 0; i <= 119; i = i+1 )
+			begin
+				board[0][i] = 1;
+				board[159][i] = 1;
+			end
+
+		// Set Y borders
+		for( i = 0; i <= 159; i = i+1 )
+			begin
+				board[i][0] = 1;
+				board[i][119] = 1;
+			end
 	end
 			
 	// Initialize variables
@@ -243,75 +269,125 @@ module timer(input clk,
 	integer move_x2 = -1;
 	integer move_y2 = 0;
 
+	
 	// On every clock pulse
 	always @(posedge clkout) 
 	begin
-		if(sanjam)
+		if (reset)
 		begin
-			// Direction parser for player 1
-			if(KEYSTROKE == 4'b0100)			// UP
+			if(sanjam)
 			begin
-				move_x1 = 0;
-				move_y1 = -1;
-			end
-			else if(KEYSTROKE == 4'b0101)		// DOWN
-			begin
-				move_x1 = 0;
-				move_y1 = 1;
-			end
-			else if(KEYSTROKE == 4'b0110)		// LEFT
-			begin
-				move_x1 = -1;
-				move_y1 = 0;
-			end
-			else if(KEYSTROKE == 4'b0111)		// RIGHT
-			begin
-				move_x1 = 1;
-				move_y1 = 0;
-			end
+				// Direction parser for player 1
+				if(KEYSTROKE == 4'b0100)			// UP
+				begin
+					move_x1 = 0;
+					move_y1 = -1;
+				end
+				else if(KEYSTROKE == 4'b0101)		// DOWN
+				begin
+					move_x1 = 0;
+					move_y1 = 1;
+				end
+				else if(KEYSTROKE == 4'b0110)		// LEFT
+				begin
+					move_x1 = -1;
+					move_y1 = 0;
+				end
+				else if(KEYSTROKE == 4'b0111)		// RIGHT
+				begin
+					move_x1 = 1;
+					move_y1 = 0;
+				end
 
-			// Update and store player 1's position
-			player1x <= player1x + move_x1;
-			player1y <= player1y + move_y1;
+				// Update and store player 1's position
+				player1x <= player1x + move_x1;
+				player1y <= player1y + move_y1;
 
-			// Move player 1
-			colour <= 3'b101;
-			x <= player1x;
-			y <= player1y;
-			sanjam = 0;
+				// TODO: Check if occupied
+				if(board[player1x][player1y] == 1)
+				begin
+					// Add score 1 to player 2 (need jonsens scoreboard)
+					// Round over screen (need working board to test mif)
+					// Copy paste reset code from below (need working board to test reset)
+					integer j;
+				end
+				else
+					board[player1x][player1y] = 1;
+
+				// Move player 1
+				colour <= 3'b101;
+				x <= player1x;
+				y <= player1y;
+				sanjam = 0;
+			end
+			else
+			// Direction parser for player 2
+			begin
+				if(KEYSTROKE == 4'b0000)			// UP
+				begin
+					move_x2 = 0;
+					move_y2 = -1;
+				end
+				else if(KEYSTROKE == 4'b0001)		// DOWN
+				begin
+					move_x2 = 0;
+					move_y2 = 1;
+				end
+				else if(KEYSTROKE == 4'b0010)		// LEFT
+				begin
+					move_x2 = -1;
+					move_y2 = 0;
+				end
+				else if(KEYSTROKE == 4'b0011)		// RIGHT
+				begin
+					move_x2 = 1;
+					move_y2 = 0;
+				end
+				// Update and store player 2's position
+				player2x <= player2x + move_x2;
+				player2y <= player2y + move_y2;
+
+				// TODO: Check if occupied
+				if(board[player2x][player2y] == 1)
+				begin
+					// Add score 1 to player 1 (need jonsens scoreboard)
+					// Round over screen (need working board to test mif)
+					// Copy paste reset code from below (need working board to test reset)
+					integer j;
+				end
+				else
+					board[player2x][player2y] = 1;
+
+				// Move player 2
+				colour <= 3'b011;
+				x <= player2x;
+				y <= player2y;
+				sanjam = 1;
+			end
 		end
 		else
-		// Direction parser for player 2
+		// Reset
 		begin
-			if(KEYSTROKE == 4'b0000)			// UP
+			player1x <= 8'b00000101;
+		   player1y <= 8'b00000101;
+			player2x <= 8'b01110000;
+		   player2y <= 8'b01101111;
+			if(sanjam)
 			begin
-				move_x2 = 0;
-				move_y2 = -1;
+				x <= player1x;
+				y <= player1y;
+				sanjam=0;
 			end
-			else if(KEYSTROKE == 4'b0001)		// DOWN
+			else
 			begin
-				move_x2 = 0;
-				move_y2 = 1;
+				x <= player2x;
+				y <= player2y;
+				sanjam=1;
 			end
-			else if(KEYSTROKE == 4'b0010)		// LEFT
-			begin
-				move_x2 = -1;
-				move_y2 = 0;
-			end
-			else if(KEYSTROKE == 4'b0011)		// RIGHT
-			begin
-				move_x2 = 1;
-				move_y2 = 0;
-			end
-			// Update and store player 2's position
-			player2x <= player2x + move_x2;
-			player2y <= player2y + move_y2;
-
-			// Move player 2
-			colour <= 3'b011;
-			x <= player2x;
-			y <= player2y;
-			sanjam = 1;
+			move_x1 = 1;
+			move_y1 = 0;
+			move_x2 = -1;
+			move_y2 = 0;
 		end
 	end
 endmodule

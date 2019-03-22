@@ -1,5 +1,5 @@
 Flow report for TronWithFriends
-Wed Mar 20 21:48:21 2019
+Fri Mar 22 18:42:15 2019
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed Mar 20 21:48:21 2019       ;
+; Flow Status                        ; Successful - Fri Mar 22 18:42:15 2019       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; TronWithFriends                             ;
 ; Top-level Entity Name              ; TronWithFriends                             ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 284 / 114,480 ( < 1 % )                     ;
-;     Total combinational functions  ; 267 / 114,480 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 162 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 162                                         ;
+; Total logic elements               ; 310 / 114,480 ( < 1 % )                     ;
+;     Total combinational functions  ; 298 / 114,480 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 164 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 164                                         ;
 ; Total pins                         ; 60 / 529 ( 11 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 57,600 / 3,981,312 ( 1 % )                  ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/20/2019 21:47:47 ;
+; Start date & time ; 03/22/2019 18:41:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TronWithFriends     ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 268891675925421.155313286708790       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 268891676010988.155329449906518       ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                  ; --            ; --          ; eda_simulation ;
@@ -97,12 +97,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:10     ; 1.0                     ; 1211 MB             ; 00:00:21                           ;
-; Fitter                    ; 00:00:15     ; 1.0                     ; 1567 MB             ; 00:00:16                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 1074 MB             ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 1164 MB             ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 1321 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:32     ; --                      ; --                  ; 00:00:43                           ;
+; Analysis & Synthesis      ; 00:00:11     ; 1.0                     ; 1215 MB             ; 00:00:22                           ;
+; Fitter                    ; 00:00:15     ; 1.0                     ; 1565 MB             ; 00:00:16                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 1075 MB             ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 1158 MB             ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 1322 MB             ; 00:00:01                           ;
+; Total                     ; 00:00:32     ; --                      ; --                  ; 00:00:44                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -111,11 +111,11 @@ agreement for further details.
 +---------------------------+------------------+----------------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
 +---------------------------+------------------+----------------+------------+----------------+
-; Analysis & Synthesis      ; IITS-I402-17     ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
-; Fitter                    ; IITS-I402-17     ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
-; Assembler                 ; IITS-I402-17     ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
-; TimeQuest Timing Analyzer ; IITS-I402-17     ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
-; EDA Netlist Writer        ; IITS-I402-17     ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
+; Analysis & Synthesis      ; IITS-I402-16     ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
+; Fitter                    ; IITS-I402-16     ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
+; Assembler                 ; IITS-I402-16     ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
+; TimeQuest Timing Analyzer ; IITS-I402-16     ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
+; EDA Netlist Writer        ; IITS-I402-16     ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
 +---------------------------+------------------+----------------+------------+----------------+
 
 

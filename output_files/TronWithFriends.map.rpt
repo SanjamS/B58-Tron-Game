@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TronWithFriends
-Wed Mar 20 21:47:57 2019
+Fri Mar 22 18:41:50 2019
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -18,7 +18,7 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
  10. General Register Statistics
  11. Inverted Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated
+ 13. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated
  14. Parameter Settings for User Entity Instance: vga_adapter:VGA
  15. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
  16. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
@@ -60,15 +60,15 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 20 21:47:57 2019       ;
+; Analysis & Synthesis Status        ; Successful - Fri Mar 22 18:41:50 2019       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; TronWithFriends                             ;
 ; Top-level Entity Name              ; TronWithFriends                             ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 283                                         ;
-;     Total combinational functions  ; 267                                         ;
-;     Dedicated logic registers      ; 162                                         ;
-; Total registers                    ; 162                                         ;
+; Total logic elements               ; 315                                         ;
+;     Total combinational functions  ; 298                                         ;
+;     Dedicated logic registers      ; 164                                         ;
+; Total registers                    ; 164                                         ;
 ; Total pins                         ; 60                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 57,600                                      ;
@@ -175,35 +175,36 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                   ;
-+--------------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path     ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                           ; Library ;
-+--------------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
-; TronWithFriends.v                    ; yes             ; User Verilog HDL File        ; /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v                    ;         ;
-; vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File   ; /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_pll.v                ;         ;
-; vga_adapter/vga_controller.v         ; yes             ; User Verilog HDL File        ; /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_controller.v         ;         ;
-; vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File        ; /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_address_translator.v ;         ;
-; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File        ; /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_adapter.v            ;         ;
-; keyboard.v                           ; yes             ; Auto-Found Verilog HDL File  ; /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/keyboard.v                           ;         ;
-; altsyncram.tdf                       ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altsyncram.tdf         ;         ;
-; stratix_ram_block.inc                ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/stratix_ram_block.inc  ;         ;
-; lpm_mux.inc                          ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/lpm_mux.inc            ;         ;
-; lpm_decode.inc                       ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/lpm_decode.inc         ;         ;
-; aglobal160.inc                       ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/aglobal160.inc         ;         ;
-; a_rdenreg.inc                        ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/a_rdenreg.inc          ;         ;
-; altrom.inc                           ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altrom.inc             ;         ;
-; altram.inc                           ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altram.inc             ;         ;
-; altdpram.inc                         ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altdpram.inc           ;         ;
-; db/altsyncram_60g1.tdf               ; yes             ; Auto-Generated Megafunction  ; /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/altsyncram_60g1.tdf               ;         ;
-; db/decode_lsa.tdf                    ; yes             ; Auto-Generated Megafunction  ; /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/decode_lsa.tdf                    ;         ;
-; db/decode_e8a.tdf                    ; yes             ; Auto-Generated Megafunction  ; /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/decode_e8a.tdf                    ;         ;
-; db/mux_0nb.tdf                       ; yes             ; Auto-Generated Megafunction  ; /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/mux_0nb.tdf                       ;         ;
-; altpll.tdf                           ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altpll.tdf             ;         ;
-; stratix_pll.inc                      ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/stratix_pll.inc        ;         ;
-; stratixii_pll.inc                    ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/stratixii_pll.inc      ;         ;
-; cycloneii_pll.inc                    ; yes             ; Megafunction                 ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/cycloneii_pll.inc      ;         ;
-+--------------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                  ;
++--------------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path     ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                ; Library ;
++--------------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------------+---------+
+; TronWithFriends.v                    ; yes             ; User Verilog HDL File                  ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v                    ;         ;
+; vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File             ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_pll.v                ;         ;
+; vga_adapter/vga_controller.v         ; yes             ; User Verilog HDL File                  ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_controller.v         ;         ;
+; vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File                  ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_address_translator.v ;         ;
+; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File                  ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_adapter.v            ;         ;
+; keyboard.v                           ; yes             ; Auto-Found Verilog HDL File            ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/keyboard.v                           ;         ;
+; altsyncram.tdf                       ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altsyncram.tdf              ;         ;
+; stratix_ram_block.inc                ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/stratix_ram_block.inc       ;         ;
+; lpm_mux.inc                          ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/lpm_mux.inc                 ;         ;
+; lpm_decode.inc                       ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/lpm_decode.inc              ;         ;
+; aglobal160.inc                       ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/aglobal160.inc              ;         ;
+; a_rdenreg.inc                        ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/a_rdenreg.inc               ;         ;
+; altrom.inc                           ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altrom.inc                  ;         ;
+; altram.inc                           ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altram.inc                  ;         ;
+; altdpram.inc                         ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altdpram.inc                ;         ;
+; db/altsyncram_emg1.tdf               ; yes             ; Auto-Generated Megafunction            ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/altsyncram_emg1.tdf               ;         ;
+; image.colour.mif                     ; yes             ; Auto-Found Memory Initialization File  ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/image.colour.mif                     ;         ;
+; db/decode_lsa.tdf                    ; yes             ; Auto-Generated Megafunction            ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/decode_lsa.tdf                    ;         ;
+; db/decode_e8a.tdf                    ; yes             ; Auto-Generated Megafunction            ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/decode_e8a.tdf                    ;         ;
+; db/mux_0nb.tdf                       ; yes             ; Auto-Generated Megafunction            ; /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/mux_0nb.tdf                       ;         ;
+; altpll.tdf                           ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altpll.tdf                  ;         ;
+; stratix_pll.inc                      ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/stratix_pll.inc             ;         ;
+; stratixii_pll.inc                    ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/stratixii_pll.inc           ;         ;
+; cycloneii_pll.inc                    ; yes             ; Megafunction                           ; /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/cycloneii_pll.inc           ;         ;
++--------------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -211,20 +212,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 283            ;
+; Estimated Total logic elements              ; 315            ;
 ;                                             ;                ;
-; Total combinational functions               ; 267            ;
+; Total combinational functions               ; 298            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 75             ;
-;     -- 3 input functions                    ; 71             ;
-;     -- <=2 input functions                  ; 121            ;
+;     -- 4 input functions                    ; 82             ;
+;     -- 3 input functions                    ; 69             ;
+;     -- <=2 input functions                  ; 147            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 149            ;
+;     -- normal mode                          ; 180            ;
 ;     -- arithmetic mode                      ; 118            ;
 ;                                             ;                ;
-; Total registers                             ; 162            ;
-;     -- Dedicated logic registers            ; 162            ;
+; Total registers                             ; 164            ;
+;     -- Dedicated logic registers            ; 164            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 60             ;
@@ -237,7 +238,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 88             ;
-; Total fan-out                               ; 1549           ;
+; Total fan-out                               ; 1641           ;
 ; Average fan-out                             ; 2.77           ;
 +---------------------------------------------+----------------+
 
@@ -247,16 +248,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |TronWithFriends                                        ; 267 (0)           ; 162 (0)      ; 57600       ; 0            ; 0       ; 0         ; 60   ; 0            ; |TronWithFriends                                                                                                ; TronWithFriends        ; work         ;
+; |TronWithFriends                                        ; 298 (0)           ; 164 (0)      ; 57600       ; 0            ; 0       ; 0         ; 60   ; 0            ; |TronWithFriends                                                                                                ; TronWithFriends        ; work         ;
 ;    |keyboard:kb|                                        ; 67 (67)           ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|keyboard:kb                                                                                    ; keyboard               ; work         ;
-;    |timer:t0|                                           ; 102 (70)          ; 80 (54)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|timer:t0                                                                                       ; timer                  ; work         ;
+;    |timer:t0|                                           ; 133 (101)         ; 82 (56)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|timer:t0                                                                                       ; timer                  ; work         ;
 ;       |ratedivider:r0|                                  ; 32 (32)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|timer:t0|ratedivider:r0                                                                        ; ratedivider            ; work         ;
 ;    |vga_adapter:VGA|                                    ; 98 (2)            ; 30 (0)       ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 12 (0)            ; 4 (0)        ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
-;          |altsyncram_60g1:auto_generated|               ; 12 (0)            ; 4 (4)        ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated                          ; altsyncram_60g1        ; work         ;
-;             |decode_e8a:rden_decode_b|                  ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_e8a:rden_decode_b ; decode_e8a             ; work         ;
-;             |decode_lsa:decode2|                        ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_lsa:decode2       ; decode_lsa             ; work         ;
-;             |mux_0nb:mux3|                              ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3             ; mux_0nb                ; work         ;
+;          |altsyncram_emg1:auto_generated|               ; 12 (0)            ; 4 (4)        ; 57600       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated                          ; altsyncram_emg1        ; work         ;
+;             |decode_e8a:rden_decode_b|                  ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_e8a:rden_decode_b ; decode_e8a             ; work         ;
+;             |decode_lsa:decode2|                        ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_lsa:decode2       ; decode_lsa             ; work         ;
+;             |mux_0nb:mux3|                              ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3             ; mux_0nb                ; work         ;
 ;       |vga_address_translator:user_input_translator|    ; 18 (18)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|vga_address_translator:user_input_translator                                   ; vga_address_translator ; work         ;
 ;       |vga_controller:controller|                       ; 66 (48)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|vga_controller:controller                                                      ; vga_controller         ; work         ;
 ;          |vga_address_translator:controller_translator| ; 18 (18)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TronWithFriends|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator         ; vga_address_translator ; work         ;
@@ -266,13 +267,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                      ;
-+----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
-; Name                                                                             ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
-+----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
-; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 19200        ; 3            ; 19200        ; 3            ; 57600 ; None ;
-+----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                  ;
++----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------------------+
+; Name                                                                             ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF              ;
++----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------------------+
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 19200        ; 3            ; 19200        ; 3            ; 57600 ; image.colour.mif ;
++----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------------------+
 
 
 +----------------------------------------------------------------------------------+
@@ -282,7 +283,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------+----------------------------------------+
 ; timer:t0|sanjam[1..31]                  ; Stuck at GND due to stuck port data_in ;
 ; timer:t0|colour[0]                      ; Stuck at VCC due to stuck port data_in ;
-; timer:t0|colour[1,2]                    ; Merged with timer:t0|sanjam[0]         ;
 ; timer:t0|move_y2[8..31]                 ; Lost fanout                            ;
 ; timer:t0|move_x2[8..31]                 ; Lost fanout                            ;
 ; timer:t0|move_y1[8..31]                 ; Lost fanout                            ;
@@ -294,7 +294,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; keyboard:kb|KEYSTROKE[4]                ; Stuck at GND due to stuck port data_in ;
 ; timer:t0|player2y[7]                    ; Lost fanout                            ;
 ; timer:t0|player1y[7]                    ; Lost fanout                            ;
-; Total Number of Removed Registers = 157 ;                                        ;
+; Total Number of Removed Registers = 155 ;                                        ;
 +-----------------------------------------+----------------------------------------+
 
 
@@ -303,12 +303,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 162   ;
+; Total registers                              ; 164   ;
 ; Number of registers using Synchronous Clear  ; 45    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 65    ;
+; Number of registers using Clock Enable       ; 67    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -318,21 +318,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; timer:t0|sanjam[0]                      ; 58      ;
+; timer:t0|sanjam[0]                      ; 20      ;
 ; timer:t0|player2y[6]                    ; 2       ;
 ; timer:t0|player2y[5]                    ; 2       ;
 ; timer:t0|player2y[3]                    ; 2       ;
+; timer:t0|player1y[2]                    ; 2       ;
 ; timer:t0|player2y[2]                    ; 2       ;
 ; timer:t0|player2y[1]                    ; 2       ;
+; timer:t0|player1y[0]                    ; 2       ;
 ; timer:t0|player2y[0]                    ; 2       ;
 ; timer:t0|player2x[6]                    ; 2       ;
 ; timer:t0|player2x[5]                    ; 2       ;
+; timer:t0|player1x[0]                    ; 2       ;
+; timer:t0|player1x[2]                    ; 2       ;
 ; timer:t0|player2x[4]                    ; 2       ;
-; timer:t0|move_x2[1]                     ; 1       ;
+; timer:t0|move_x2[1]                     ; 3       ;
 ; timer:t0|move_x2[0]                     ; 1       ;
 ; timer:t0|move_x1[0]                     ; 1       ;
 ; keyboard:kb|PREVIOUS_STATE              ; 5       ;
-; Total number of inverted registers = 14 ;         ;
+; Total number of inverted registers = 18 ;         ;
 +-----------------------------------------+---------+
 
 
@@ -341,18 +345,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TronWithFriends|vga_adapter:VGA|vga_controller:controller|yCounter[1]                                             ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TronWithFriends|keyboard:kb|CODEWORD[1]                                                                           ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |TronWithFriends|keyboard:kb|COUNT[2]                                                                              ;
-; 129:1              ; 4 bits    ; 344 LEs       ; 24 LEs               ; 320 LEs                ; Yes        ; |TronWithFriends|keyboard:kb|KEYSTROKE[0]                                                                          ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3|result_node[2] ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |TronWithFriends|timer:t0|player1y[4]                                                                              ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |TronWithFriends|timer:t0|player2x[3]                                                                              ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |TronWithFriends|vga_adapter:VGA|vga_controller:controller|yCounter[3]                                             ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TronWithFriends|keyboard:kb|CODEWORD[0]                                                                           ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |TronWithFriends|keyboard:kb|COUNT[1]                                                                              ;
+; 129:1              ; 4 bits    ; 344 LEs       ; 24 LEs               ; 320 LEs                ; Yes        ; |TronWithFriends|keyboard:kb|KEYSTROKE[2]                                                                          ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |TronWithFriends|timer:t0|move_x1[0]                                                                               ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |TronWithFriends|timer:t0|player2x[6]                                                                              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |TronWithFriends|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3|result_node[1] ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TronWithFriends|timer:t0|move_x2                                                                                  ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TronWithFriends|timer:t0|move_x1                                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------+
-; Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated ;
+; Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated ;
 +---------------------------------+--------------------+------+--------------------------------+
 ; Assignment                      ; Value              ; From ; To                             ;
 +---------------------------------+--------------------+------+--------------------------------+
@@ -362,14 +370,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 +--------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: vga_adapter:VGA ;
-+-------------------------+-----------+------------------------+
-; Parameter Name          ; Value     ; Type                   ;
-+-------------------------+-----------+------------------------+
-; BITS_PER_COLOUR_CHANNEL ; 1         ; Signed Integer         ;
-; MONOCHROME              ; FALSE     ; String                 ;
-; RESOLUTION              ; 160x120   ; String                 ;
-; BACKGROUND_IMAGE        ; black.mif ; String                 ;
-+-------------------------+-----------+------------------------+
++-------------------------+------------------+-----------------+
+; Parameter Name          ; Value            ; Type            ;
++-------------------------+------------------+-----------------+
+; BITS_PER_COLOUR_CHANNEL ; 1                ; Signed Integer  ;
+; MONOCHROME              ; FALSE            ; String          ;
+; RESOLUTION              ; 160x120          ; String          ;
+; BACKGROUND_IMAGE        ; image.colour.mif ; String          ;
++-------------------------+------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -426,7 +434,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                 ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
-; INIT_FILE                          ; black.mif            ; Untyped                 ;
+; INIT_FILE                          ; image.colour.mif     ; Untyped                 ;
 ; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                 ;
 ; MAXIMUM_DEPTH                      ; 0                    ; Untyped                 ;
 ; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                 ;
@@ -439,7 +447,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                 ;
 ; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                 ;
 ; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                 ;
-; CBXI_PARAMETER                     ; altsyncram_60g1      ; Untyped                 ;
+; CBXI_PARAMETER                     ; altsyncram_emg1      ; Untyped                 ;
 +------------------------------------+----------------------+-------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -922,27 +930,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 60                          ;
-; cycloneiii_ff         ; 162                         ;
+; cycloneiii_ff         ; 164                         ;
 ;     CLR               ; 20                          ;
-;     ENA               ; 53                          ;
+;     ENA               ; 55                          ;
 ;     ENA SCLR          ; 12                          ;
 ;     SCLR              ; 33                          ;
 ;     plain             ; 44                          ;
-; cycloneiii_lcell_comb ; 268                         ;
+; cycloneiii_lcell_comb ; 299                         ;
 ;     arith             ; 118                         ;
 ;         2 data inputs ; 76                          ;
 ;         3 data inputs ; 42                          ;
-;     normal            ; 150                         ;
+;     normal            ; 181                         ;
 ;         0 data inputs ; 3                           ;
-;         1 data inputs ; 22                          ;
-;         2 data inputs ; 21                          ;
-;         3 data inputs ; 29                          ;
-;         4 data inputs ; 75                          ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 59                          ;
+;         3 data inputs ; 27                          ;
+;         4 data inputs ; 82                          ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.50                        ;
-; Average LUT depth     ; 2.73                        ;
+; Max LUT depth         ; 4.60                        ;
+; Average LUT depth     ; 2.87                        ;
 +-----------------------+-----------------------------+
 
 
@@ -951,7 +959,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -961,29 +969,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Wed Mar 20 21:47:47 2019
+    Info: Processing started: Fri Mar 22 18:41:39 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TronWithFriends -c TronWithFriends
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 4 design units, including 4 entities, in source file TronWithFriends.v
-    Info (12023): Found entity 1: keyboard File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/keyboard.v Line: 7
-    Info (12023): Found entity 2: TronWithFriends File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 49
-    Info (12023): Found entity 3: timer File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 219
-    Info (12023): Found entity 4: ratedivider File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 320
+    Info (12023): Found entity 1: keyboard File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/keyboard.v Line: 7
+    Info (12023): Found entity 2: TronWithFriends File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 49
+    Info (12023): Found entity 3: timer File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 220
+    Info (12023): Found entity 4: ratedivider File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 396
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_pll.v
-    Info (12023): Found entity 1: vga_pll File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_pll.v Line: 36
+    Info (12023): Found entity 1: vga_pll File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_controller.v
-    Info (12023): Found entity 1: vga_controller File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_controller.v Line: 9
+    Info (12023): Found entity 1: vga_controller File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_address_translator.v
-    Info (12023): Found entity 1: vga_address_translator File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_address_translator.v Line: 4
+    Info (12023): Found entity 1: vga_address_translator File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
-    Info (12023): Found entity 1: vga_adapter File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 78
+    Info (12023): Found entity 1: vga_adapter File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 78
 Info (12127): Elaborating entity "TronWithFriends" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at TronWithFriends.v(88): object "writeEn" assigned a value but never read File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 88
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 109
-Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 192
-Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 213
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 213
-Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 213
+Warning (10036): Verilog HDL or VHDL warning at TronWithFriends.v(88): object "writeEn" assigned a value but never read File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 88
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 109
+Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 192
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 213
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 213
+Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 213
     Info (12134): Parameter "WIDTH_A" = "3"
     Info (12134): Parameter "WIDTH_B" = "3"
     Info (12134): Parameter "INTENDED_DEVICE_FAMILY" = "Cyclone II"
@@ -998,23 +1006,23 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
     Info (12134): Parameter "CLOCK_ENABLE_INPUT_B" = "BYPASS"
     Info (12134): Parameter "CLOCK_ENABLE_OUTPUT_B" = "BYPASS"
     Info (12134): Parameter "POWER_UP_UNINITIALIZED" = "FALSE"
-    Info (12134): Parameter "INIT_FILE" = "black.mif"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_60g1.tdf
-    Info (12023): Found entity 1: altsyncram_60g1 File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/altsyncram_60g1.tdf Line: 34
-Info (12128): Elaborating entity "altsyncram_60g1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated" File: /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12134): Parameter "INIT_FILE" = "image.colour.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_emg1.tdf
+    Info (12023): Found entity 1: altsyncram_emg1 File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/altsyncram_emg1.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_emg1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated" File: /usr/local/cms/altera_lite/16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_lsa.tdf
-    Info (12023): Found entity 1: decode_lsa File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/decode_lsa.tdf Line: 23
-Info (12128): Elaborating entity "decode_lsa" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_lsa:decode2" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/altsyncram_60g1.tdf Line: 47
+    Info (12023): Found entity 1: decode_lsa File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/decode_lsa.tdf Line: 23
+Info (12128): Elaborating entity "decode_lsa" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_lsa:decode2" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/altsyncram_emg1.tdf Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_e8a.tdf
-    Info (12023): Found entity 1: decode_e8a File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/decode_e8a.tdf Line: 23
-Info (12128): Elaborating entity "decode_e8a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|decode_e8a:rden_decode_b" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/altsyncram_60g1.tdf Line: 48
+    Info (12023): Found entity 1: decode_e8a File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/decode_e8a.tdf Line: 23
+Info (12128): Elaborating entity "decode_e8a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|decode_e8a:rden_decode_b" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/altsyncram_emg1.tdf Line: 48
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_0nb.tdf
-    Info (12023): Found entity 1: mux_0nb File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/mux_0nb.tdf Line: 23
-Info (12128): Elaborating entity "mux_0nb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_60g1:auto_generated|mux_0nb:mux3" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/db/altsyncram_60g1.tdf Line: 50
-Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 231
-Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_pll.v Line: 53
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_pll.v Line: 53
-Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_pll.v Line: 53
+    Info (12023): Found entity 1: mux_0nb File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/mux_0nb.tdf Line: 23
+Info (12128): Elaborating entity "mux_0nb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_emg1:auto_generated|mux_0nb:mux3" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/db/altsyncram_emg1.tdf Line: 50
+Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 231
+Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_pll.v Line: 53
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_pll.v Line: 53
+Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_pll.v Line: 53
     Info (12134): Parameter "operation_mode" = "NORMAL"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
     Info (12134): Parameter "lpm_type" = "altpll"
@@ -1026,64 +1034,64 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_divide_by" = "2"
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 252
-Info (12128): Elaborating entity "keyboard" for hierarchy "keyboard:kb" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 123
-Warning (10230): Verilog HDL assignment warning at keyboard.v(50): truncated value with size 32 to match size of target (8) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/keyboard.v Line: 50
-Warning (10230): Verilog HDL assignment warning at keyboard.v(62): truncated value with size 32 to match size of target (12) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/keyboard.v Line: 62
-Warning (10230): Verilog HDL assignment warning at keyboard.v(76): truncated value with size 32 to match size of target (4) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/keyboard.v Line: 76
-Info (12128): Elaborating entity "timer" for hierarchy "timer:t0" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 157
-Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(274): truncated value with size 32 to match size of target (8) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 274
-Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(275): truncated value with size 32 to match size of target (8) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 275
-Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(307): truncated value with size 32 to match size of target (8) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 307
-Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(308): truncated value with size 32 to match size of target (8) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 308
-Info (12128): Elaborating entity "ratedivider" for hierarchy "timer:t0|ratedivider:r0" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 239
-Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(328): truncated value with size 32 to match size of target (25) File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 328
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/vga_adapter/vga_adapter.v Line: 252
+Info (12128): Elaborating entity "keyboard" for hierarchy "keyboard:kb" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 123
+Warning (10230): Verilog HDL assignment warning at keyboard.v(50): truncated value with size 32 to match size of target (8) File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/keyboard.v Line: 50
+Warning (10230): Verilog HDL assignment warning at keyboard.v(62): truncated value with size 32 to match size of target (12) File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/keyboard.v Line: 62
+Warning (10230): Verilog HDL assignment warning at keyboard.v(76): truncated value with size 32 to match size of target (4) File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/keyboard.v Line: 76
+Info (12128): Elaborating entity "timer" for hierarchy "timer:t0" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 158
+Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(303): truncated value with size 32 to match size of target (8) File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 303
+Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(304): truncated value with size 32 to match size of target (8) File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 304
+Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(347): truncated value with size 32 to match size of target (8) File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 347
+Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(348): truncated value with size 32 to match size of target (8) File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 348
+Info (12128): Elaborating entity "ratedivider" for hierarchy "timer:t0|ratedivider:r0" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 265
+Warning (10230): Verilog HDL assignment warning at TronWithFriends.v(404): truncated value with size 32 to match size of target (25) File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 404
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 76
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 76
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 98 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/output_files/TronWithFriends.map.smsg
+Info (144001): Generated suppressed messages file /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/output_files/TronWithFriends.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 21 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 68
-    Warning (15610): No output dependent on input pin "KEY[2]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 68
-    Warning (15610): No output dependent on input pin "KEY[3]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 68
-    Warning (15610): No output dependent on input pin "SW[0]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[1]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[2]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[3]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[4]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[5]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[6]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[7]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[8]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[9]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[10]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[11]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[12]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[13]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[14]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[15]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[16]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-    Warning (15610): No output dependent on input pin "SW[17]" File: /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/TronWithFriends.v Line: 67
-Info (21057): Implemented 361 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 68
+    Warning (15610): No output dependent on input pin "KEY[2]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 68
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 68
+    Warning (15610): No output dependent on input pin "SW[0]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[1]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[2]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[3]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[4]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[5]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[6]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[7]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[8]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[9]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[10]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[11]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[12]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[13]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[14]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[15]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[16]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+    Warning (15610): No output dependent on input pin "SW[17]" File: /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/TronWithFriends.v Line: 67
+Info (21057): Implemented 388 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 25 input pins
     Info (21059): Implemented 35 output pins
-    Info (21061): Implemented 291 logic cells
+    Info (21061): Implemented 318 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 35 warnings
-    Info: Peak virtual memory: 1256 megabytes
-    Info: Processing ended: Wed Mar 20 21:47:57 2019
-    Info: Elapsed time: 00:00:10
+    Info: Peak virtual memory: 1259 megabytes
+    Info: Processing ended: Fri Mar 22 18:41:50 2019
+    Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:22
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in /cmshome/jegath68/Desktop/CSCB58/A1/B58-Tron-Game/output_files/TronWithFriends.map.smsg.
+The suppressed messages can be found in /cmshome/sigdelsa/Desktop/Desktop/cscb58/B58-Tron-Game/output_files/TronWithFriends.map.smsg.
 
 
