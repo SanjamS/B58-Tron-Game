@@ -1,19 +1,21 @@
 // this is test
-module scores(KEY, SW, HEX7, HEX6, HEX5, HEX4);
-	input [3:0] KEY; // player 1 won player 2 won
-   input [1:0] SW; // someone won,reset score
+module scores(p1, p2, enable, reset, HEX7, HEX6, HEX5, HEX4);
+	input p1; // player 1 won
+    input p2; // player 2 won
+    input enable; // someone won
+    input reset; // reset game
 
-   output [6:0] HEX7, HEX6, HEX5, HEX4;
+   	output [6:0] HEX7, HEX6, HEX5, HEX4;
 
 	wire [3:0] score1_dig1, score1_dig2, score2_dig1, score2_dig2;
 	
-	counter scorep1(SW[0], KEY[3], SW[1], {score1_dig1, score1_dig2});
-	counter scorep2(SW[0], KEY[0], SW[1], {score2_dig1, score2_dig2});
+	counter scorep1(enable, p1, reset, {score1_dig1, score1_dig2});
+	counter scorep2(enable, p2, reset, {score2_dig1, score2_dig2});
 	
-   hex_display hexp1_1(score1_dig1, HEX7);
-   hex_display hexp1_2(score1_dig2, HEX6);
-   hex_display hexp2_1(score2_dig1, HEX5);
-   hex_display hexp2_2(score2_dig2, HEX4);
+    hex_display hexp1_1(score1_dig1, HEX7);
+    hex_display hexp1_2(score1_dig2, HEX6);
+    hex_display hexp2_1(score2_dig1, HEX5);
+    hex_display hexp2_2(score2_dig2, HEX4);
 
 endmodule
 
@@ -63,45 +65,9 @@ module hex_display(IN, OUT);
 			4'b0111: OUT = 7'b1111000;
 			4'b1000: OUT = 7'b0000000;
 			4'b1001: OUT = 7'b0011000;
-			4'b1010: OUT = 7'b0001000;
-			4'b1011: OUT = 7'b0000011;
-			4'b1100: OUT = 7'b1000110;
-			4'b1101: OUT = 7'b0100001;
-			4'b1110: OUT = 7'b0000110;
-			4'b1111: OUT = 7'b0001110;
-			
-			default: OUT = 7'b0111111;
+			// Default 0
+			default: OUT = 7'b1000000;
 		endcase
 
 	end
 endmodule
-
-
-// real code
-/*
-module scores(p1, p2, enable, reset, HEX7, HEX6, HEX5, HEX4);
-    input p1; // player 1 won
-    input p2; // player 2 won
-    input enable; // someone won
-    input reset; // reset game
-    wire score1_dig1;
-    wire score1_dig2;
-    wire score2_dig1;
-    wire score2_dig2;
-    counter scorep1(.enable(p1), 
-              .clk(enable),
-              .clear_b(reset),
-              .out({score1_dig1, score1_dig2})
-              );
-    counter scorep2(.enable(p2), 
-              .clk(enable),
-              .clear_b(reset),
-              .out({score2_dig1, score2_dig2})
-              );
-    hex_display hexp1_1(score1_dig1, HEX7);
-    hex_display hexp1_2(score1_dig2, HEX6);
-    hex_display hexp2_1(score2_dig1, HEX5);
-    hex_display hexp2_2(score2_dig2, HEX4);
-endmodule
-*/
-
