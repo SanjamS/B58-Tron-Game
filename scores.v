@@ -1,4 +1,3 @@
-// this is test
 module scores(p1, p2, enable, reset, HEX7, HEX6, HEX5, HEX4);
 	input p1; // player 1 won
     input p2; // player 2 won
@@ -39,12 +38,14 @@ endmodule
 module bit_counter(in, clk, clear_b, out);
 	input clk, clear_b, in;
 	output reg out;
-	always @(posedge clk, negedge clear_b)
+	always @ (posedge clk, negedge clear_b) 
 	begin
 		if (clear_b == 1'b0)
 			out <= 1'b0;
-		else if (in == 1'b1)
-			out <= ~out;
+		else if (in == 1'b1 && out<9)
+			out <= out + 1;
+		else if (in == 1'b1 && out==9)
+			out <= 0;
 	end
 endmodule
 
