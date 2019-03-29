@@ -1,5 +1,5 @@
 Flow report for TronWithFriends
-Fri Mar 29 16:33:01 2019
+Fri Mar 29 17:01:46 2019
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Mar 29 16:33:01 2019       ;
+; Flow Status                        ; Successful - Fri Mar 29 17:01:46 2019       ;
 ; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                      ; TronWithFriends                             ;
 ; Top-level Entity Name              ; TronWithFriends                             ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 326 / 114,480 ( < 1 % )                     ;
-;     Total combinational functions  ; 313 / 114,480 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 165 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 165                                         ;
+; Total logic elements               ; 341 / 114,480 ( < 1 % )                     ;
+;     Total combinational functions  ; 324 / 114,480 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 166 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 166                                         ;
 ; Total pins                         ; 60 / 529 ( 11 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 57,600 / 3,981,312 ( 1 % )                  ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/29/2019 16:32:23 ;
+; Start date & time ; 03/29/2019 17:01:09 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TronWithFriends     ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 268891676011055.155389154307710       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 268891676011055.155389326909394       ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                  ; --            ; --          ; eda_simulation ;
@@ -97,12 +97,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 1216 MB             ; 00:00:24                           ;
-; Fitter                    ; 00:00:16     ; 1.0                     ; 1566 MB             ; 00:00:17                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 1072 MB             ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 1159 MB             ; 00:00:02                           ;
+; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 1215 MB             ; 00:00:23                           ;
+; Fitter                    ; 00:00:15     ; 1.0                     ; 1567 MB             ; 00:00:17                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 1075 MB             ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 1162 MB             ; 00:00:02                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 1322 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:36     ; --                      ; --                  ; 00:00:47                           ;
+; Total                     ; 00:00:34     ; --                      ; --                  ; 00:00:46                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -65,7 +65,7 @@ module TronWithFriends
 		defparam VGA.RESOLUTION = "160x120";
 		defparam VGA.MONOCHROME = "FALSE";
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-		defparam VGA.BACKGROUND_IMAGE = "loser.mif";
+		defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
 	// Keybored
 	input PS2_KBCLK, PS2_KBDAT;
@@ -216,7 +216,7 @@ module timer(input clk,
 			
 	// Initialize variables
 	wire clkout;
-	ratedivider r0(clk, clkout);
+	ratedivider r0(clk, clkout, reset);
 	integer sanjam = 1;
 	integer move_x1 = 1;
 	integer move_y1 = 0;
@@ -230,7 +230,18 @@ module timer(input clk,
 	begin
 		if (reset)
 		begin
-			start_clear <= 0;
+			if(start_clear)
+			begin
+				// Set player 1's start position
+				player1x <= 8'b00000101;
+				player1y <= 8'b00000101;
+
+				// Set player 2's start position
+				player2x <= 8'b01110000;
+				player2y <= 8'b01101111;
+				start_clear <= 0;
+			end
+
 			if(sanjam)
 			begin
 				// Direction parser for player 1
@@ -337,7 +348,7 @@ module timer(input clk,
 			end
 
 			// Output black pixels to clear the screen
-			colour <= 3'b111;
+			colour <= 3'b000;
 			player1x <= player1x + 1;
 			if(player1x == 180)
 			begin
@@ -353,105 +364,27 @@ module timer(input clk,
 endmodule
 	
 
-module ratedivider(clk, clkout);
+module ratedivider(clk, clkout, reset);
 	input clk;
+	input reset;
 	output reg clkout;
 	reg [24:0] count;
 	
 	always @(posedge clk)
 	begin
-				if (count < 2000000)
+		if(reset)
+		begin
+			if (count < 2000000)
 				count <= count + 1;
-				else begin
+			else 
+			begin
 				count <= 0;
 				clkout <= ~clkout;
-end
-	end
-endmodule
-
-/*
-GRAVEYARD
-Quick Tip: Cards sent to the graveyard can be special summonned using the Monster Reborn spell card!
-
-module datapath(
-				input clk, 
-				input reset_n,
-				input [7:0] in_x, 
-				input [6:0] in_y, 
-				input [2:0] in_colour, 
-				input load_x,
-				input load_y,
-				output reg [7:0] out_x,
-				output reg [6:0] out_y,
-				output reg [2:0] out_colour
-				);
-
-	always@(posedge clk)
-	begin
-	// Case: Reset
-	if(!reset_n)
-		begin
-			out_x <= 8'b0;
-			out_y <= 7'b0;
-			out_colour <= 3'b0;
+			end
 		end
-	// Case: Load coords and colours
-	else
-		begin
-			// Load x
-			if(load_x)
-				out_x <= in_x;
-			// Load y
-			if(load_y)
-				out_y <= in_y;
-			// Load colour
-			out_colour <= in_colour;
-		end
-	end
-endmodule
-
-module control(
-				input clk,
-				input reset_n,
-				input writeEn,
-				input in_write_x,
-				input in_write_y,
-				output reg load_x,
-				output reg load_y,
-				output reg load_output
-				);
-
-	
-    reg [3:0] current_state, next_state;
-	localparam S_LOAD_X = 3'd0,
-			   S_LOAD_Y = 3'd1,
-			   S_LOAD_OUTPUT = 3'd2;
-	
-	// Reset_n
-	always@(posedge clk)
-	begin: resets
-		if(!reset_n)
-			current_state <= S_LOAD_X;
 		else
-			current_state <= next_state;
-	end
-	
-	// Update outputs
-	always@(*)
-	begin: outputs
-		// Reset output
-		load_x = 1'b0;
-		load_y = 1'b0;
-		load_output = 1'b0;
-		
-		case(current_state)
-			S_LOAD_X:
-				load_x = 1'b1;
-			S_LOAD_Y:
-				load_y = 1'b1;
-			S_LOAD_OUTPUT:
-				load_output = 1'b1;
-		endcase
+		begin
+			clkout <= ~clkout;
+		end
 	end
 endmodule
-*/
