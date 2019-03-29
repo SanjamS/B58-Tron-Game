@@ -1,49 +1,3 @@
-/*
-2 dots on screen, 1 top left, 1 bottom right
-press KEY[1] to start game
-use SW[0-3] for player 1s movements, SW[14-17] for player 2s movements
-
-if(KEY[1]):
-	while(True): # represents clock
-		player1.move_and_display(ENABLED_SWITCHES)
-		player2.move_and_display(ENABLED_SWITCHES)
-
-		update_ram(player1.location)
-		update_ram(player2.location)
-
-		player1.check_if_occupied()
-		player2.check_if_occupied()
-
-def check_if_occupied():
-	if(coords in ram):
-		return False // END GAME
-
-def update_ram(coords)
-	ram.append(coords)
-
-
-when the game starts
-start clock
-player 1 moves to the right until key is pressed. direction is handled by an fsm
-player 2 moves to the left until ""
-
-when player moves
-1. leave previous pixel on screen
-we need ram to hold all the places pixels are
-
-2. check if current pixel is occupied
-end game, give point to opposition
-
-3. draw pixel on screen if unoccupied
-
-
-- ram to store coords
-- directions fsm
-- collision trail
-- collision border
-
-*/
-
 `include "keyboard.v"
 
 module TronWithFriends
@@ -79,14 +33,14 @@ module TronWithFriends
 	output	[9:0]	VGA_B;   				//	VGA Blue[9:0]
 	
 	wire resetn;							// Reset key
-	assign resetn = KEY[0];					// Reset key
+	assign resetn = KEY[1];					// Reset key
 	
 	// Create the colour, x, y and writeEn wires that are inputs to the controller.
 	wire [2:0] colour;
 	wire [7:0] x;
 	wire [6:0] y;
 	wire writeEn;
-	assign writeEn = SW[10];
+	assign writeEn = KEY[0];
 
 	// Create an Instance of a VGA controller - there can be only one!
 	// Define the number of colours as well as the initial background
@@ -111,7 +65,7 @@ module TronWithFriends
 		defparam VGA.RESOLUTION = "160x120";
 		defparam VGA.MONOCHROME = "FALSE";
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-		defparam VGA.BACKGROUND_IMAGE = "image.colour.mif";
+		defparam VGA.BACKGROUND_IMAGE = "loser.mif";
 
 	// Keybored
 	input PS2_KBCLK, PS2_KBDAT;
@@ -145,7 +99,7 @@ module TronWithFriends
 	*/
 	timer t0(
 				.clk(CLOCK_50),
-				.reset(resetn),
+				.reset(SW[11]),
 				.x(wire_x),
 				.y(wire_y),
 				.player1x(player_1x),
@@ -268,6 +222,7 @@ module timer(input clk,
 	integer move_y1 = 0;
 	integer move_x2 = -1;
 	integer move_y2 = 0;
+	integer start_clear = 1;
 
 	
 	// On every clock pulse
@@ -275,6 +230,7 @@ module timer(input clk,
 	begin
 		if (reset)
 		begin
+			start_clear <= 0;
 			if(sanjam)
 			begin
 				// Direction parser for player 1
@@ -368,26 +324,30 @@ module timer(input clk,
 		else
 		// Reset
 		begin
-			player1x <= 8'b00000101;
-		   player1y <= 8'b00000101;
-			player2x <= 8'b01110000;
-		   player2y <= 8'b01101111;
-			if(sanjam)
+			// Reset position to start clearing
+			if(start_clear)
 			begin
-				x <= player1x;
-				y <= player1y;
-				sanjam=0;
+				player1x <= 8'b00000000;
+				player1y <= 8'b00000000;
+				start_clear <= 0;
+				move_x1 = 1;
+				move_y1 = 0;
+				move_x2 = -1;
+				move_y2 = 0;
 			end
-			else
+
+			// Output black pixels to clear the screen
+			colour <= 3'b111;
+			player1x <= player1x + 1;
+			if(player1x == 180)
 			begin
-				x <= player2x;
-				y <= player2y;
-				sanjam=1;
+				player1x <= 0;
+				player1y <= player1y + 1;
 			end
-			move_x1 = 1;
-			move_y1 = 0;
-			move_x2 = -1;
-			move_y2 = 0;
+
+			x <= player1x;
+			y <= player1y;
+
 		end
 	end
 endmodule
