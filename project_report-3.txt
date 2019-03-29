@@ -1,0 +1,35 @@
+Weekly Reports--------------
+Week 1:
+We started off with the code we had from Lab 6, which only went as far as displaying a single pixel in the top left corner. From here, we removed the main FSM and datapath from the lab and wired the circuit to
+display a pixel in the top right as soon as it's turned on (i.e. no user input required to get an output to the screen). We then tried to get a second player's pixel to show up on the screen but faced issues
+with positioning. We moved on to work on movement instead and got the pixel to move on the posedge of the 50 Hz clock. This was too fast and would give us a line of the colour of the player so we switched our
+clock to the keys instead to make sure it was working as intended. After confirming that it was working as we wanted, we worked on creating a 1Hz clock using a rate divider. The speed we got from this clock was
+too slow so we made adjustments to speed it up to what we expect to be the final speed of the game. We anticipate that we will not create a motorcycle with pixel art due to time constraints.
+
+Week 2:
+From last week, we were able to have two pixels of differing colours to move on the screen. We had the switches on the FPGA board control the movement for both pixels. Afterward, we went on to work on keyboard controls
+for movement. Once we got our game to work with the PS2 keyboard, we split up to work on other aspects of the game. We created a scoring system which tracks the number of wins for each player. We started off from the
+counter code in Lab 4, which displayed a counter on the hex display on the board. We set up two counters for each player, which showed their score. The lab however also counts
+with hexadecimal values, so we tried to have it only count with decimal values. This proved a little more difficult than we anticipated, so more work will have to be done in the following week.
+We also worked on the borders, saving the pixel locations that were already traversed, and the reset functionality for the game. However, we could not properly test these functions because of JTAG issues in the boards
+we were currently working with at the time, so we will have to test them out the next week.
+
+Week 3:
+This week, we completed the scoreboard (counts up to 10, then resets) and linked it to the game, reset functionality, and randomized locations of the players after reset.
+Originally, we wanted to have our game end when a collision with a player and trail occured, but we had difficulty implementing that because of the way we implemented movement and the trails left behind. Instead, we
+made game endings based on honour system; when a player loses, the other player will reset and increment their score manually by pressing two buttons. Obviously, this isn't what we wanted on based on our original idea due to
+time constraints, but was the way we went regardless. We also tried testing some of the other functions that we couldn't test last week, such as borders. Those would not work, so instead we opted to make it so that if a player
+reaches one end of the screen they will instantly be transported to the opposite side of the screen.
+
+References----------
+CSCB58 - Lab 4  -> Rate divider code and counter
+https://github.com/rahul-kumar-saini/TurfWars -> Rate divider to implement the clock to use for player movement speed
+CSCB58 - Lab 6 -> Displaying pixels on the screen at specified coordinates
+http://www.instructables.com/id/PS2-Keyboard-for-FPGA/ -> Use keyboard as input for pixel movement
+http://electrosofts.com/verilog/loop_statements.html -> Writing for loops to initialize borders
+http://www.gstitt.ece.ufl.edu/courses/spring18/eel4712/labs/lab6/ -> Converting image files to .mif files
+
+
+Repo & Video------------
+<At the end of the project, provide links to your code repository and presentation video (and passwords if not public)>
+https://github.com/SanjamS/B58-Tron-Game
