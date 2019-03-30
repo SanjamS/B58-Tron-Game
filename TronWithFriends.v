@@ -1,4 +1,5 @@
 `include "keyboard.v"
+`include "scores.v"
 
 module TronWithFriends
 	(
@@ -6,6 +7,10 @@ module TronWithFriends
         KEY,								// User defined input
         SW,									// User defined input
 		  PS2_KBCLK, PS2_KBDAT,			// Keybored input
+		  HEX7, 
+		  HEX6, 
+		  HEX5, 
+		  HEX4,
 		// The ports below are for the VGA output.  Do not change.
 		VGA_CLK,   							//	VGA Clock
 		VGA_HS,								//	VGA H_SYNC
@@ -20,6 +25,8 @@ module TronWithFriends
 	input	CLOCK_50;						//	50 MHz
 	input   [17:0]   SW;					// User defined input
 	input   [3:0]   KEY;					// User defined input
+
+	output [6:0] HEX7, HEX6, HEX5, HEX4;
 
 	// Declare your inputs and outputs here
 	// Do not change the following outputs
@@ -75,6 +82,15 @@ module TronWithFriends
 		.PS2_DATA(PS2_KBDAT),
 		.KEYSTROKE(KEYSTROKE)
   );
+  
+  scores(
+		.KEY(KEY[3:0]), 
+		.SW(SW[1:0]), 
+		.HEX7(HEX7), 
+		.HEX6(HEX6), 
+		.HEX5(HEX5), 
+		.HEX4(HEX4)
+	);
   wire [4:0] KEYSTROKE;
 		
 	// Set up display outputs
@@ -99,7 +115,7 @@ module TronWithFriends
 	*/
 	timer t0(
 				.clk(CLOCK_50),
-				.reset(SW[11]),
+				.reset(KEY[2]),
 				.x(wire_x),
 				.y(wire_y),
 				.player1x(player_1x),
@@ -193,8 +209,8 @@ module timer(input clk,
 		player1y <= 8'b00000101;
 
 		// Set player 2's start position
-		player2x <= 8'b01110000;
-		player2y <= 8'b01101111;
+		player2x <= 155;
+		player2y <= 115;
 		
 		// Create the board
 		board[5][5] = 1;
@@ -230,18 +246,6 @@ module timer(input clk,
 	begin
 		if (reset)
 		begin
-			if(start_clear)
-			begin
-				// Set player 1's start position
-				player1x <= 8'b00000101;
-				player1y <= 8'b00000101;
-
-				// Set player 2's start position
-				player2x <= 8'b01110000;
-				player2y <= 8'b01101111;
-				start_clear <= 0;
-			end
-
 			if(sanjam)
 			begin
 				// Direction parser for player 1
@@ -270,12 +274,13 @@ module timer(input clk,
 				player1x <= player1x + move_x1;
 				player1y <= player1y + move_y1;
 
-				// TODO: Check if occupied
+				// TODO: Check if occupied (doesn't work tho so liiiikeeeee)(soundcloud.com/vtgo)
 				if(board[player1x][player1y] == 1)
 				begin
 					// Add score 1 to player 2 (need jonsens scoreboard)
 					// Round over screen (need working board to test mif)
 					// Copy paste reset code from below (need working board to test reset)
+					// we tried but doing collision detection but he rly dont work so this is our friend, placeholder j
 					integer j;
 				end
 				else
@@ -310,16 +315,18 @@ module timer(input clk,
 					move_x2 = 1;
 					move_y2 = 0;
 				end
+
 				// Update and store player 2's position
 				player2x <= player2x + move_x2;
 				player2y <= player2y + move_y2;
 
-				// TODO: Check if occupied
+				// TODO: Check if occupied (doesn't work tho so liiiikeeeee)(soundcloud.com/vtgo)
 				if(board[player2x][player2y] == 1)
 				begin
 					// Add score 1 to player 1 (need jonsens scoreboard)
 					// Round over screen (need working board to test mif)
 					// Copy paste reset code from below (need working board to test reset)
+					// we tried but doing collision detection but he rly dont work so this is our friend, placeholder j
 					integer j;
 				end
 				else
@@ -350,7 +357,7 @@ module timer(input clk,
 			// Output black pixels to clear the screen
 			colour <= 3'b000;
 			player1x <= player1x + 1;
-			if(player1x == 180)
+			if(player1x == 160)
 			begin
 				player1x <= 0;
 				player1y <= player1y + 1;

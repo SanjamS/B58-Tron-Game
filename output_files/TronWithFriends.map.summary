@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Mar 29 17:01:21 2019
+Analysis & Synthesis Status : Successful - Fri Mar 29 19:55:29 2019
 Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : TronWithFriends
 Top-level Entity Name : TronWithFriends
 Family : Cyclone IV E
-Total logic elements : 341
-    Total combinational functions : 323
-    Dedicated logic registers : 166
-Total registers : 166
-Total pins : 60
+Total logic elements : 356
+    Total combinational functions : 339
+    Dedicated logic registers : 174
+Total registers : 174
+Total pins : 88
 Total virtual pins : 0
 Total memory bits : 57,600
 Embedded Multiplier 9-bit elements : 0

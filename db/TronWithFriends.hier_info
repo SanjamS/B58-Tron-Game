@@ -1,11 +1,11 @@
 |TronWithFriends
 CLOCK_50 => CLOCK_50.IN3
-KEY[0] => ~NO_FANOUT~
-KEY[1] => resetn.IN1
-KEY[2] => ~NO_FANOUT~
-KEY[3] => ~NO_FANOUT~
-SW[0] => SW[0].IN1
-SW[1] => SW[1].IN1
+KEY[0] => KEY[0].IN1
+KEY[1] => resetn.IN2
+KEY[2] => KEY[2].IN2
+KEY[3] => KEY[3].IN1
+SW[0] => SW[0].IN2
+SW[1] => SW[1].IN2
 SW[2] => SW[2].IN1
 SW[3] => SW[3].IN1
 SW[4] => SW[4].IN1
@@ -15,7 +15,7 @@ SW[7] => SW[7].IN1
 SW[8] => SW[8].IN1
 SW[9] => SW[9].IN1
 SW[10] => SW[10].IN1
-SW[11] => SW[11].IN2
+SW[11] => SW[11].IN1
 SW[12] => SW[12].IN1
 SW[13] => SW[13].IN1
 SW[14] => SW[14].IN1
@@ -24,6 +24,34 @@ SW[16] => SW[16].IN1
 SW[17] => SW[17].IN1
 PS2_KBCLK => PS2_KBCLK.IN1
 PS2_KBDAT => PS2_KBDAT.IN1
+HEX7[0] <= scores:comb_5.HEX7
+HEX7[1] <= scores:comb_5.HEX7
+HEX7[2] <= scores:comb_5.HEX7
+HEX7[3] <= scores:comb_5.HEX7
+HEX7[4] <= scores:comb_5.HEX7
+HEX7[5] <= scores:comb_5.HEX7
+HEX7[6] <= scores:comb_5.HEX7
+HEX6[0] <= scores:comb_5.HEX6
+HEX6[1] <= scores:comb_5.HEX6
+HEX6[2] <= scores:comb_5.HEX6
+HEX6[3] <= scores:comb_5.HEX6
+HEX6[4] <= scores:comb_5.HEX6
+HEX6[5] <= scores:comb_5.HEX6
+HEX6[6] <= scores:comb_5.HEX6
+HEX5[0] <= scores:comb_5.HEX5
+HEX5[1] <= scores:comb_5.HEX5
+HEX5[2] <= scores:comb_5.HEX5
+HEX5[3] <= scores:comb_5.HEX5
+HEX5[4] <= scores:comb_5.HEX5
+HEX5[5] <= scores:comb_5.HEX5
+HEX5[6] <= scores:comb_5.HEX5
+HEX4[0] <= scores:comb_5.HEX4
+HEX4[1] <= scores:comb_5.HEX4
+HEX4[2] <= scores:comb_5.HEX4
+HEX4[3] <= scores:comb_5.HEX4
+HEX4[4] <= scores:comb_5.HEX4
+HEX4[5] <= scores:comb_5.HEX4
+HEX4[6] <= scores:comb_5.HEX4
 VGA_CLK <= vga_adapter:VGA.VGA_CLK
 VGA_HS <= vga_adapter:VGA.VGA_HS
 VGA_VS <= vga_adapter:VGA.VGA_VS
@@ -893,6 +921,179 @@ KEYSTROKE[4] <= KEYSTROKE[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 KEYSTROKE[5] <= KEYSTROKE[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 KEYSTROKE[6] <= KEYSTROKE[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 KEYSTROKE[7] <= KEYSTROKE[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TronWithFriends|scores:comb_5
+KEY[0] => KEY[0].IN1
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => KEY[3].IN1
+SW[0] => SW[0].IN2
+SW[1] => SW[1].IN2
+HEX7[0] <= hex_display:hexp1_1.port1
+HEX7[1] <= hex_display:hexp1_1.port1
+HEX7[2] <= hex_display:hexp1_1.port1
+HEX7[3] <= hex_display:hexp1_1.port1
+HEX7[4] <= hex_display:hexp1_1.port1
+HEX7[5] <= hex_display:hexp1_1.port1
+HEX7[6] <= hex_display:hexp1_1.port1
+HEX6[0] <= hex_display:hexp1_2.port1
+HEX6[1] <= hex_display:hexp1_2.port1
+HEX6[2] <= hex_display:hexp1_2.port1
+HEX6[3] <= hex_display:hexp1_2.port1
+HEX6[4] <= hex_display:hexp1_2.port1
+HEX6[5] <= hex_display:hexp1_2.port1
+HEX6[6] <= hex_display:hexp1_2.port1
+HEX5[0] <= hex_display:hexp2_1.port1
+HEX5[1] <= hex_display:hexp2_1.port1
+HEX5[2] <= hex_display:hexp2_1.port1
+HEX5[3] <= hex_display:hexp2_1.port1
+HEX5[4] <= hex_display:hexp2_1.port1
+HEX5[5] <= hex_display:hexp2_1.port1
+HEX5[6] <= hex_display:hexp2_1.port1
+HEX4[0] <= hex_display:hexp2_2.port1
+HEX4[1] <= hex_display:hexp2_2.port1
+HEX4[2] <= hex_display:hexp2_2.port1
+HEX4[3] <= hex_display:hexp2_2.port1
+HEX4[4] <= hex_display:hexp2_2.port1
+HEX4[5] <= hex_display:hexp2_2.port1
+HEX4[6] <= hex_display:hexp2_2.port1
+
+
+|TronWithFriends|scores:comb_5|counter:scorep1
+enable => enable.IN1
+clk => clk.IN4
+clear_b => clear_b.IN4
+out[0] <= bit_counter:t0.port3
+out[1] <= bit_counter:t1.port3
+out[2] <= bit_counter:t2.port3
+out[3] <= bit_counter:t3.port3
+
+
+|TronWithFriends|scores:comb_5|counter:scorep1|bit_counter:t0
+in => out~reg0.ENA
+clk => out~reg0.CLK
+clear_b => out~reg0.ACLR
+out <= out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TronWithFriends|scores:comb_5|counter:scorep1|bit_counter:t1
+in => out~reg0.ENA
+clk => out~reg0.CLK
+clear_b => out~reg0.ACLR
+out <= out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TronWithFriends|scores:comb_5|counter:scorep1|bit_counter:t2
+in => out~reg0.ENA
+clk => out~reg0.CLK
+clear_b => out~reg0.ACLR
+out <= out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TronWithFriends|scores:comb_5|counter:scorep1|bit_counter:t3
+in => out~reg0.ENA
+clk => out~reg0.CLK
+clear_b => out~reg0.ACLR
+out <= out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TronWithFriends|scores:comb_5|counter:scorep2
+enable => enable.IN1
+clk => clk.IN4
+clear_b => clear_b.IN4
+out[0] <= bit_counter:t0.port3
+out[1] <= bit_counter:t1.port3
+out[2] <= bit_counter:t2.port3
+out[3] <= bit_counter:t3.port3
+
+
+|TronWithFriends|scores:comb_5|counter:scorep2|bit_counter:t0
+in => out~reg0.ENA
+clk => out~reg0.CLK
+clear_b => out~reg0.ACLR
+out <= out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TronWithFriends|scores:comb_5|counter:scorep2|bit_counter:t1
+in => out~reg0.ENA
+clk => out~reg0.CLK
+clear_b => out~reg0.ACLR
+out <= out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TronWithFriends|scores:comb_5|counter:scorep2|bit_counter:t2
+in => out~reg0.ENA
+clk => out~reg0.CLK
+clear_b => out~reg0.ACLR
+out <= out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TronWithFriends|scores:comb_5|counter:scorep2|bit_counter:t3
+in => out~reg0.ENA
+clk => out~reg0.CLK
+clear_b => out~reg0.ACLR
+out <= out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TronWithFriends|scores:comb_5|hex_display:hexp1_1
+IN[0] => Decoder0.IN3
+IN[1] => Decoder0.IN2
+IN[2] => Decoder0.IN1
+IN[3] => Decoder0.IN0
+OUT[0] <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+OUT[1] <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+OUT[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+OUT[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUT[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUT[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUT[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUT[7] <= <GND>
+
+
+|TronWithFriends|scores:comb_5|hex_display:hexp1_2
+IN[0] => Decoder0.IN3
+IN[1] => Decoder0.IN2
+IN[2] => Decoder0.IN1
+IN[3] => Decoder0.IN0
+OUT[0] <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+OUT[1] <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+OUT[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+OUT[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUT[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUT[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUT[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUT[7] <= <GND>
+
+
+|TronWithFriends|scores:comb_5|hex_display:hexp2_1
+IN[0] => Decoder0.IN3
+IN[1] => Decoder0.IN2
+IN[2] => Decoder0.IN1
+IN[3] => Decoder0.IN0
+OUT[0] <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+OUT[1] <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+OUT[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+OUT[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUT[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUT[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUT[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUT[7] <= <GND>
+
+
+|TronWithFriends|scores:comb_5|hex_display:hexp2_2
+IN[0] => Decoder0.IN3
+IN[1] => Decoder0.IN2
+IN[2] => Decoder0.IN1
+IN[3] => Decoder0.IN0
+OUT[0] <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+OUT[1] <= OUT.DB_MAX_OUTPUT_PORT_TYPE
+OUT[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+OUT[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+OUT[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+OUT[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+OUT[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+OUT[7] <= <GND>
 
 
 |TronWithFriends|timer:t0

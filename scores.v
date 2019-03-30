@@ -1,20 +1,18 @@
-module scores(p1, p2, enable, reset, HEX7, HEX6, HEX5, HEX4);
-	input p1; // player 1 won
-    input p2; // player 2 won
-    input enable; // someone won
-    input reset; // reset game
+module scores(KEY, SW, HEX7, HEX6, HEX5, HEX4);
+	input [3:0] KEY; // player 1 won player 2 won
+   input [1:0] SW; // someone won,reset score
 
-   	output [6:0] HEX7, HEX6, HEX5, HEX4;
+   output [6:0] HEX7, HEX6, HEX5, HEX4;
 
 	wire [3:0] score1_dig1, score1_dig2, score2_dig1, score2_dig2;
 	
-	counter scorep1(enable, p1, reset, {score1_dig1, score1_dig2});
-	counter scorep2(enable, p2, reset, {score2_dig1, score2_dig2});
+	counter scorep1(SW[0], KEY[3], SW[1], {score1_dig1, score1_dig2});
+	counter scorep2(SW[0], KEY[0], SW[1], {score2_dig1, score2_dig2});
 	
-    hex_display hexp1_1(score1_dig1, HEX7);
-    hex_display hexp1_2(score1_dig2, HEX6);
-    hex_display hexp2_1(score2_dig1, HEX5);
-    hex_display hexp2_2(score2_dig2, HEX4);
+   hex_display hexp1_1(score1_dig1, HEX7);
+   hex_display hexp1_2(score1_dig2, HEX6);
+   hex_display hexp2_1(score2_dig1, HEX5);
+   hex_display hexp2_2(score2_dig2, HEX4);
 
 endmodule
 
