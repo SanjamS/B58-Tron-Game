@@ -1,34 +1,29 @@
-# B58-Tron-With-Friends
+# Tron with Friends
+#### Niveen Jegatheeswaran, Sanjam Sigdel, Tabeeb Yeamin, Johnson Zhong
+##### CSCB58: Winter 2019 Final Project
 
-## About
-Outputs current products on SupremeNYC's site to a CSV file. Extracted info includes category, product name, price, stock status, and an image.
+###### Note: This project was worked on in a "pair programming" environment on one main computer, thus the commit history does not accurately reflect individual contributions.
 
-### What can this project do?
-* Find all products on Supreme's site
-* Export all product links from Supreme's site to a CSV file (products_raw.csv)
-* Export product names, categories, prices, images, and whether or not any stock remains to a CSV file (products.csv)
+_"Tron with Friends"_ is a game based on the movie Tron. The game is played with 2 players, the objective of the game is to make the other player crash into the trail left by your character. The character moves forward while leaving a trail behind of the colour of the player's choosing, the player can choose to turn left or right.The game is over when one of the characters hits any trail on the screen, including their own, and the other character is claimed the winner and wins a point.
 
-### What's left to do?
-* Proxy support
+## Controls
+# On Keyboard
+* Player 1 (Purple): <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
+* Player 2 (Blue): <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd>
+# On DE2 Board
+* 
 
-### Why did I make this?
-* Supreme product monitor development
-* Supreme bot development
+## Required Hardware
+- Altera DE2 Board
+   - For pin assignments, use `DE2cyclone4.qsf` if you are using a Cyclone IV board and `DE2cyclone2.qsf` for Cyclone II
+- VGA Display
+- PS/2 Keyboard
 
-## Screenshots
-![Screenshots](https://i.gyazo.com/5a8cfb35dcd15959a1b40909c873d72c.png)
-![Screenshots](https://i.gyazo.com/333f7d9386ce26090630447538106402.png)
+## Attributions
+1. Link: http://www.instructables.com/id/PS2-Keyboard-for-FPGA/
 
-## Credits
- **Niveen Jegatheeswaran** - [@snivynGOD](https://twitter.com/snivynGOD)
+   Description: Used the Keyboard.v file as a basis for our PS/2 keyboard input, adding additional scan codes for more keys.
+   
+2. Link: http://www.eecg.utoronto.ca/~jayar/ece241_08F/vga/vga-bmp2mif.html
 
-## Disclaimer
-Not affiliated with Supreme in any way. This is a personal project.
-It may not be stable.
-
-If you have any suggestions, or want to help make this better, let me know!
-
-Twitter: @snivynGOD
-
-## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details. 
+   Description: Used to convert our bitmap images to .mif files to use as the background for our game's start screen.
