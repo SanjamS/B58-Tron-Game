@@ -19,7 +19,7 @@ This week, we completed the scoreboard (counts up to 10, then resets) and linked
 Originally, we wanted to have our game end when a collision with a player and trail occured, but we had difficulty implementing that because of the way we implemented movement and the trails left behind. Instead, we
 made game endings based on honour system; when a player loses, the other player will reset and increment their score manually by pressing two buttons. Obviously, this isn't what we wanted on based on our original idea due to
 time constraints, but was the way we went regardless. We also tried testing some of the other functions that we couldn't test last week, such as borders. Those would not work, so instead we opted to make it so that if a player
-reaches one end of the screen they will instantly be transported to the opposite side of the screen.
+reaches one end of the screen they will be transported to the opposite side of the screen.
 
 References----------
 CSCB58 - Lab 4  -> Rate divider code and counter
