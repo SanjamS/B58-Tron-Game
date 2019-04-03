@@ -2,7 +2,7 @@
 #### Niveen Jegatheeswaran, Sanjam Sigdel, Tabeeb Yeamin, Johnson Zhong
 ##### CSCB58: Winter 2019 Final Project
 
-_"Tron with Friends"_ is a game based on the movie Tron. The game is played with 2 players, the objective of the game is to make the other player crash into the trail left by your character. The character moves forward while leaving a trail behind of the colour of the player's choosing, the player can choose to turn left or right.The game is over when one of the characters hits any trail on the screen, including their own, and the other character is claimed the winner and wins a point.
+_"Tron with Friends"_ is a game based on the movie Tron. The game is played with 2 players where the objective of the game is to make the other player crash into the trail left by your character. The character moves forward while leaving a trail behind representing the player. The player can choose to go up, down, left, or right on the screen. The game is over when one of the players hits any trail on the screen, including their own, or a player runs into a border, and the other player is claimed the winner and wins a point. After dying, a random spawn is generated to keep the game invigorating and full of suspense.
 
 ## Controls
 ### On Keybored
