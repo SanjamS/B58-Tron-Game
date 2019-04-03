@@ -11,11 +11,14 @@ _"Tron with Friends"_ is a game based on the movie Tron. The game is played with
 * Player 1 (Purple): <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
 * Player 2 (Blue): <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd>
 # On DE2 Board
-* 
+* SW[0]: Enable scoring
+* SW[1]: Reset scores
+* KEY[0]: Increment score for Player 1
+* KEY[3]: Increment score for Player 2
 
 ## Required Hardware
-- Altera DE2 Board
-   - For pin assignments, use `DE2cyclone4.qsf` if you are using a Cyclone IV board and `DE2cyclone2.qsf` for Cyclone II
+- Altera DE2 Board (Cyclone IV board)
+   - Use `de2.qsf` for pin assignments
 - VGA Display
 - PS/2 Keyboard
 
@@ -27,3 +30,27 @@ _"Tron with Friends"_ is a game based on the movie Tron. The game is played with
 2. Link: http://www.eecg.utoronto.ca/~jayar/ece241_08F/vga/vga-bmp2mif.html
 
    Description: Used to convert our bitmap images to .mif files to use as the background for our game's start screen.
+
+1. CSCB58 - Lab 4
+   
+   Description: Rate divider code and counter
+
+2. Link: https://github.com/rahul-kumar-saini/TurfWars
+   
+   Description: Rate divider to implement the clock to use for player movement speed
+
+3. CSCB58 - Lab 6
+
+   Desciption: Displaying pixels on the screen at specified coordinates
+
+4. http://www.instructables.com/id/PS2-Keyboard-for-FPGA/
+
+   Desciption: Use keyboard as input for pixel movement
+
+5. http://electrosofts.com/verilog/loop_statements.html
+
+   Description: Writing for loops to initialize borders
+
+6. http://www.gstitt.ece.ufl.edu/courses/spring18/eel4712/labs/lab6/
+
+   DesciptionL Converting image files to .mif files
