@@ -7,10 +7,10 @@
 _"Tron with Friends"_ is a game based on the movie Tron. The game is played with 2 players, the objective of the game is to make the other player crash into the trail left by your character. The character moves forward while leaving a trail behind of the colour of the player's choosing, the player can choose to turn left or right.The game is over when one of the characters hits any trail on the screen, including their own, and the other character is claimed the winner and wins a point.
 
 ## Controls
-# On Keyboard
+### On Keybored
 * Player 1 (Purple): <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
 * Player 2 (Blue): <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd>
-# On DE2 Board
+### On DE2 Board
 * SW[0]: Enable scoring
 * SW[1]: Reset scores
 * KEY[0]: Increment score for Player 1
