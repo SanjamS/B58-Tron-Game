@@ -347,6 +347,8 @@ module timer(input clk,
 			begin
 				player1x <= 8'b00000000;
 				player1y <= 8'b00000000;
+				player1x <= 8'b00001010;
+				player1y <= 8'b00001010;
 				start_clear <= 0;
 				move_x1 = 1;
 				move_y1 = 0;
@@ -363,6 +365,12 @@ module timer(input clk,
 				player1y <= player1y + 1;
 			end
 
+			player2x <= player2x + 1;
+			if(player2x == 160)
+			begin
+				player2x <= 0;
+				player2y <= player2y + 1;
+			end
 			x <= player1x;
 			y <= player1y;
 
