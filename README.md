@@ -3,8 +3,9 @@
 ##### CSCB58: Winter 2019 Final Project
 
 _"Tron with Friends"_ is a game based on the movie Tron. The game is played with 2 players where the objective of the game is to make the other player crash into the trail left by your character. The character moves forward while leaving a trail behind representing the player. The player can choose to go up, down, left, or right on the screen. The game is over when one of the players hits any trail on the screen, including their own, or a player runs into a border, and the other player is claimed the winner and wins a point. After dying, a random spawn is generated to keep the game invigorating and full of suspense.
+
 ![alt text](https://i.imgur.com/wH9HDFY.png)
-![alt text](https://i.imgur.com/AVpIJ7x.png)
+
 ## Controls
 ### On Keybored
 * Player 1 (Purple): <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
@@ -20,7 +21,7 @@ _"Tron with Friends"_ is a game based on the movie Tron. The game is played with
    - Use `de2.qsf` for pin assignments
 - VGA Display
 - PS/2 Keyboard
-
+![alt text](https://i.imgur.com/AVpIJ7x.png)
 ## Attributions
 1. Link: http://www.instructables.com/id/PS2-Keyboard-for-FPGA/
 
