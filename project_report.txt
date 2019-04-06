@@ -19,7 +19,10 @@ This week, we completed the scoreboard (counts up to 10, then resets) and linked
 Originally, we wanted to have our game end when a collision with a player and trail occured, but we had difficulty implementing that because of the way we implemented movement and the trails left behind. Instead, we
 made game endings based on honour system; when a player loses, the other player will reset and increment their score manually by pressing two buttons. Obviously, this isn't what we wanted on based on our original idea due to
 time constraints, but was the way we went regardless. We also tried testing some of the other functions that we couldn't test last week, such as borders. Those would not work, so instead we opted to make it so that if a player
-reaches one end of the screen they will be transported to the opposite side of the screen.
+reaches one end of the screen they will be transported to the opposite side of the screen. If the player does reach the end of the screen, count it as a loss and restart
+
+Week 4:
+For the last week, made it so we could reset the game through a button. We also presented our project and filmed our video.
 
 References----------
 CSCB58 - Lab 4  -> Rate divider code and counter
@@ -32,4 +35,5 @@ http://www.gstitt.ece.ufl.edu/courses/spring18/eel4712/labs/lab6/ -> Converting 
 
 Repo & Video------------
 <At the end of the project, provide links to your code repository and presentation video (and passwords if not public)>
-https://github.com/SanjamS/B58-Tron-Game
+Link to repository: https://github.com/SanjamS/B58-Tron-Game
+Link to video: https://youtu.be/M-_FizSak54
