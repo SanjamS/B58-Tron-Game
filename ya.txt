@@ -1,3 +1,0 @@
-diggggggggg
-http://www.gstitt.ece.ufl.edu/courses/spring18/eel4712/labs/lab6/
-https://www.fpga4student.com/2016/11/two-ways-to-load-text-file-to-fpga-or.html
